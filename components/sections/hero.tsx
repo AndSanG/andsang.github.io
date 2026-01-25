@@ -6,10 +6,13 @@ export function Hero() {
             <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
                 {/* Text Column */}
                 <div className="flex flex-col items-start gap-6">
-                    <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                    <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+                        Andrés Sánchez
+                    </h1>
+                    <h1 className="text-4xl md:text-3xl font-bold leading-tight">
                         Developing <br />
                         <span className="text-accent">High-Availability</span> <br />
-                        IOS & Web Solutions
+                        Mobile Apps
                     </h1>
                     <p className="text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed">
                         Senior iOS Engineer with 8+ years of experience delivering resilient mobile banking apps (99.5% uptime) for millions of users.

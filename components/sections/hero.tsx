@@ -32,7 +32,7 @@ export function Hero() {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black z-20" />
 
                     <Image
-                        src="https://picsum.photos/id/1/800/1000" // Placeholder for now
+                        src="/profile-cutout.png"
                         alt="Andres Sanchez"
                         fill
                         className="object-cover grayscale opacity-90"

@@ -28,7 +28,9 @@ export function Navbar() {
                     <a href="#projects" className="text-sm font-medium text-gray-300 hover:text-accent transition-colors">
                         Projects
                     </a>
-                    {/* Future link for Contact or CV */}
+                    <a href="#contact" className="text-sm font-medium text-gray-300 hover:text-accent transition-colors">
+                        Contact
+                    </a>
                 </div>
             </div>
         </nav>

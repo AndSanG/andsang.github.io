@@ -5,7 +5,7 @@ export function Hero() {
         <section id="hero" className="relative w-full min-h-screen flex items-center bg-black text-white overflow-hidden pt-20">
             <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
                 {/* Text Column */}
-                <div className="flex flex-col items-start gap-6">
+                <div className="flex flex-col items-start gap-6 order-2 md:order-1">
                     <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                         Andrés Sánchez
                     </h1>
@@ -19,17 +19,23 @@ export function Hero() {
                     </p>
 
                     <div className="flex gap-4 mt-4">
-                        <button className="px-8 py-3 rounded-xl border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-black transition-all duration-300">
+                        <a
+                            href="#projects"
+                            className="px-8 py-3 rounded-xl border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-black transition-all duration-300"
+                        >
                             View Work
-                        </button>
-                        <button className="px-8 py-3 rounded-xl border-2 border-transparent text-gray-400 font-semibold hover:text-white transition-all duration-300">
+                        </a>
+                        <a
+                            href="#contact"
+                            className="px-8 py-3 rounded-xl border-2 border-transparent text-gray-400 font-semibold hover:text-white transition-all duration-300"
+                        >
                             Contact Me
-                        </button>
+                        </a>
                     </div>
                 </div>
 
                 {/* Image Column */}
-                <div className="relative h-[600px] w-full hidden md:block">
+                <div className="relative h-[400px] md:h-[600px] w-full order-1 md:order-2">
                     {/* Gradient Mask to blend image into black background */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent z-20" />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black z-20" />

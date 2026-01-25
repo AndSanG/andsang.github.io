@@ -1,5 +1,4 @@
 import { Suspense } from 'react'
-import { NewsletterForm } from './newsletter-form'
 
 async function getUserStats() {
     await new Promise(resolve => setTimeout(resolve, 1500))
@@ -42,14 +41,6 @@ export default async function OptimizationShowcase() {
                 </p>
             </section>
 
-            <section className="p-6 border rounded-xl shadow-sm">
-                <h2 className="text-2xl font-bold mb-4">Server Actions & Bundle Size</h2>
-                <NewsletterForm />
-                <p className="mt-2 text-sm text-gray-500 max-w-prose">
-                    This form uses Server Actions (`useActionState`) to handle submission.
-                    The logic lives on the server, keeping the client bundle small.
-                </p>
-            </section>
         </div>
     )
 }

@@ -2,13 +2,13 @@ import Image from 'next/image'
 
 export function Hero() {
     return (
-        <section className="relative w-full min-h-screen flex items-center bg-black text-white overflow-hidden">
+        <section id="hero" className="relative w-full min-h-screen flex items-center bg-black text-white overflow-hidden pt-20">
             <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
                 {/* Text Column */}
                 <div className="flex flex-col items-start gap-6">
                     <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                         Developing <br />
-                        <span className="text-[#0abefb]">High-Availability</span> <br />
+                        <span className="text-accent">High-Availability</span> <br />
                         IOS & Web Solutions
                     </h1>
                     <p className="text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed">
@@ -16,7 +16,7 @@ export function Hero() {
                     </p>
 
                     <div className="flex gap-4 mt-4">
-                        <button className="px-8 py-3 rounded-xl border-2 border-[#0abefb] text-[#0abefb] font-semibold hover:bg-[#0abefb] hover:text-black transition-all duration-300">
+                        <button className="px-8 py-3 rounded-xl border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-black transition-all duration-300">
                             View Work
                         </button>
                         <button className="px-8 py-3 rounded-xl border-2 border-transparent text-gray-400 font-semibold hover:text-white transition-all duration-300">
@@ -43,7 +43,7 @@ export function Hero() {
             </div>
 
             {/* Background Glow Effect */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0abefb] opacity-5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#7c3aed] opacity-5 blur-[120px] rounded-full pointer-events-none" />
         </section>
     )
 }

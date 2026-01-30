@@ -16,9 +16,9 @@ export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
         <div className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''}`}>
 
             {/* Content Side */}
-            <div className="w-full md:w-1/2 pl-16 md:pl-0 md:px-12">
+            <div className="w-full md:w-1/2 pl-16 md:px-12">
                 <div className={`
-                    bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300
+                    relative z-10 bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300
                     ${isEven ? 'md:text-left' : 'md:text-right'}
                  `}>
                     <span className={`inline-block px-3 py-1 rounded-full bg-zinc-800 text-xs text-zinc-400 mb-3 font-mono`}>
@@ -42,10 +42,9 @@ export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
             </div>
 
             {/* Connection Line (Desktop) */}
-            <div className={`absolute top-1/2 -translate-y-1/2 h-1 bg-zinc-800 hidden md:block w-12 
+            <div className={`absolute top-1/2 -translate-y-1/2 h-1 bg-zinc-800 hidden md:block w-4 
                 ${isEven ? 'left-1/2 ml-8' : 'right-1/2 mr-8'}
              `}></div>
-
 
             {/* Empty Side for Spacing */}
             <div className="w-full md:w-1/2 hidden md:block"></div>

@@ -19,7 +19,7 @@ export async function ExperienceSection() {
                     <div className="absolute left-8 top-0 bottom-0 w-1 bg-zinc-800 md:hidden rounded-full"></div>
 
 
-                    <div className="space-y-12 md:space-y-24">
+                    <div className="space-y-12 md:space-y-0">
                         {experiences.map((exp, index) => (
                             <ExperienceCard
                                 key={exp.id}

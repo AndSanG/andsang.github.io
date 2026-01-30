@@ -3,15 +3,7 @@
 import { Briefcase, Calendar, Code, GraduationCap, Trophy, User } from "lucide-react"
 import { useRef } from "react"
 
-interface ExperienceItem {
-    id: string
-    year: string
-    title: string
-    company: string
-    description: string
-    icon: React.ElementType
-    color: string
-}
+import { ExperienceCard, ExperienceItem } from "@/components/ui/experience-card"
 
 const experiences: ExperienceItem[] = [
     {
@@ -70,49 +62,13 @@ export function ExperienceSection() {
 
 
                     <div className="space-y-12 md:space-y-24">
-                        {experiences.map((exp, index) => {
-                            const isEven = index % 2 === 0
-                            return (
-                                <div key={exp.id} className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''}`}>
-
-                                    {/* Content Side */}
-                                    <div className="w-full md:w-1/2 pl-16 md:pl-0 md:px-12">
-                                        <div className={`
-                                            bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300
-                                            ${isEven ? 'md:text-left' : 'md:text-right'}
-                                         `}>
-                                            <span className={`inline-block px-3 py-1 rounded-full bg-zinc-800 text-xs text-zinc-400 mb-3 font-mono`}>
-                                                {exp.year}
-                                            </span>
-                                            <h3 className={`text-xl font-bold text-white mb-1 ${exp.color}`}>{exp.title}</h3>
-                                            <p className="text-zinc-400 text-sm mb-3 font-medium">{exp.company}</p>
-                                            <p className="text-zinc-500 text-sm leading-relaxed">
-                                                {exp.description}
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    {/* Timeline Node (Icon) */}
-                                    <div className={`
-                                        absolute left-8 md:left-1/2 transform -translate-x-1/2 flex items-center justify-center
-                                        w-12 h-12 md:w-16 md:h-16 rounded-full bg-black border-4 border-zinc-900 z-10
-                                        ${exp.color}
-                                    `}>
-                                        <exp.icon className="w-5 h-5 md:w-8 md:h-8" />
-                                    </div>
-
-                                    {/* Connection Line (Desktop) */}
-                                    <div className={`absolute top-1/2 -translate-y-1/2 h-1 bg-zinc-800 hidden md:block w-12 
-                                        ${isEven ? 'left-1/2 ml-8' : 'right-1/2 mr-8'}
-                                     `}></div>
-
-
-                                    {/* Empty Side for Spacing */}
-                                    <div className="w-full md:w-1/2 hidden md:block"></div>
-
-                                </div>
-                            )
-                        })}
+                        {experiences.map((exp, index) => (
+                            <ExperienceCard
+                                key={exp.id}
+                                experience={exp}
+                                isEven={index % 2 === 0}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

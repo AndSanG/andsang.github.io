@@ -54,15 +54,17 @@ app/                    # Next.js Framework Layer (Pages, API Routes, Components
         - Use Dependency Injection to access Repositories/Services.
 
 ### 3. Interface Adapters (`src/interface-adapters`)
-- **Contains**: Controllers, Presenters.
+- **Contains**: Controllers, Presenters/DTOs.
 - **Rules**:
     - **Controllers**:
         - Entry points for the application layer.
         - Handle input validation and authentication checks.
         - Call Use Cases.
         - Handle errors from inner layers.
+        - **Data Flow**: Converts HTTP/User input -> Use Case Input (DTOs).
     - **Presenters**:
         - Format data for the UI (e.g., remove sensitive fields).
+        - **Data Flow**: Converts Use Case Output (Entities/DTOs) -> View Models/UI responses.
 
 ### 4. Infrastructure (`src/infrastructure`)
 - **Contains**: Repository Implementations, Service Implementations, Database Config.
@@ -78,6 +80,11 @@ app/                    # Next.js Framework Layer (Pages, API Routes, Components
     - Should ONLY use **Controllers** to interact with the system.
     - MUST NOT import Use Cases, Repositories, or Services directly.
     - Uses Dependency Injection to resolve Controllers.
+
+## Data Crossing Boundaries
+Uncle Bob explicitly warns against passing "Database rows" or framework-specific objects across boundaries.
+- **Entities != DB Models**: Your Entity (`User`) should be decoupled from your Drizzle Schema (`usersTable`). The Repository implementation is responsible for mapping between them.
+- **DTOs**: Use simple Data Transfer Objects (plain JS objects) to pass data between layers if the Entity shape differs significantly from what the View or DB needs.
 
 ## Workflow for New Feature
 

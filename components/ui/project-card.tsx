@@ -1,11 +1,4 @@
-export interface Project {
-    id: string
-    title: string
-    role: string
-    description: string
-    challenge: string
-    techStack: string[]
-}
+import { Project } from '@/src/entities/project'
 
 export function ProjectCard({ project }: { project: Project }) {
     return (

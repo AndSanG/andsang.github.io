@@ -1,23 +1,23 @@
 "use client"
 
-
-
-export interface ExperienceItem {
-    id: string
-    year: string
-    title: string
-    company: string
-    description: string
-    icon: React.ElementType
-    color: string
-}
+import { Briefcase, Calendar, Code, GraduationCap, User, LucideIcon } from "lucide-react"
+import { Experience } from "@/src/entities/experience"
 
 interface ExperienceCardProps {
-    experience: ExperienceItem
+    experience: Experience
     isEven: boolean
 }
 
+const iconMap: Record<string, LucideIcon> = {
+    'User': User,
+    'Briefcase': Briefcase,
+    'Code': Code,
+    'GraduationCap': GraduationCap
+}
+
 export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
+    const IconComponent = iconMap[experience.iconName] || User // Default to User if not found
+
     return (
         <div className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''}`}>
 
@@ -44,7 +44,7 @@ export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
                 w-12 h-12 md:w-16 md:h-16 rounded-full bg-black border-4 border-zinc-900 z-10
                 ${experience.color}
             `}>
-                <experience.icon className="w-5 h-5 md:w-8 md:h-8" />
+                <IconComponent className="w-5 h-5 md:w-8 md:h-8" />
             </div>
 
             {/* Connection Line (Desktop) */}

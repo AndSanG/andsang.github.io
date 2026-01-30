@@ -14,7 +14,6 @@ export interface Experience {
     title: string
     company: string
     description: string
-    // Storing icon as a string identifier to keep Entity pure from UI framework
-    iconName: 'User' | 'Briefcase' | 'Code' | 'GraduationCap'
+    iconName: string
     color: string
 }

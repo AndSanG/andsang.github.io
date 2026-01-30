@@ -1,6 +1,5 @@
 "use client"
 
-import { Briefcase, Calendar, Code, GraduationCap, User, LucideIcon } from "lucide-react"
 import { Experience } from "@/src/entities/experience"
 
 interface ExperienceCardProps {
@@ -8,15 +7,10 @@ interface ExperienceCardProps {
     isEven: boolean
 }
 
-const iconMap: Record<string, LucideIcon> = {
-    'User': User,
-    'Briefcase': Briefcase,
-    'Code': Code,
-    'GraduationCap': GraduationCap
-}
+import { ExperiencePresenter } from "@/src/interface-adapters/presenters/experience-presenter"
 
 export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
-    const IconComponent = iconMap[experience.iconName] || User // Default to User if not found
+    const IconComponent = ExperiencePresenter.getIconComponent(experience.iconName)
 
     return (
         <div className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''}`}>

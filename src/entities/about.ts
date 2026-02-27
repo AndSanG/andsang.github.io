@@ -4,6 +4,8 @@ export interface AboutStat {
 }
 
 export interface About {
+    name: string
+    heroDescription: string
     bio: string[]
     stats: AboutStat[]
     skills: string[]

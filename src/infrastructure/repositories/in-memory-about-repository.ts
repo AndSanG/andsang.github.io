@@ -4,6 +4,8 @@ import { AboutRepository } from "../../application/repositories/about-repository
 export class InMemoryAboutRepository implements AboutRepository {
     async getAbout(): Promise<About> {
         return {
+            name: "Andrés Sánchez",
+            heroDescription: "Senior iOS Engineer with 8+ years of experience delivering resilient mobile banking apps (99.5% uptime) for millions of users.",
             bio: [
                 "Andrés Sánchez is a Senior iOS Engineer with 8+ years building mobile banking software that millions of people depend on. Based in Quito, Ecuador, he specializes in Swift, modern iOS architectures (MVVM, TCA, Clean Architecture), and FinTech systems operating under strict security and regulatory requirements. His work has powered banking applications across Latin America — including Tier-1 client with 10M+ active users — maintaining 99.5% availability under SLA-governed delivery.",
                 "He holds an MSc in Applied Computer Science from Vrije Universiteit Brussel (Belgium), completed with distinction and funded by an Ecuadorian Government scholarship. His thesis explored minimalistic AI architectures for language models. He also holds a BSc in Electronics Engineering, graduated valedictorian of his cohort, with a publication in IEEE Xplore.",

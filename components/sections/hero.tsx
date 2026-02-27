@@ -1,13 +1,16 @@
 import Image from 'next/image'
+import { aboutController } from '@/src/di'
 
-export function Hero() {
+export async function Hero() {
+    const about = await aboutController.getAbout()
+
     return (
         <section id="hero" className="relative w-full min-h-screen flex items-center bg-background dark:bg-black text-foreground dark:text-white overflow-hidden pt-20">
             <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
                 {/* Text Column */}
                 <div className="flex flex-col items-start gap-6 order-2 md:order-1">
                     <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                        Andrés Sánchez
+                        {about.name}
                     </h1>
                     <h1 className="text-4xl md:text-3xl font-bold leading-tight">
                         Developing <br />
@@ -15,7 +18,7 @@ export function Hero() {
                         Mobile Apps
                     </h1>
                     <p className="text-zinc-500 dark:text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed">
-                        Senior iOS Engineer with 8+ years of experience delivering resilient mobile banking apps (99.5% uptime) for millions of users.
+                        {about.heroDescription}
                     </p>
 
                     <div className="flex gap-4 mt-4">

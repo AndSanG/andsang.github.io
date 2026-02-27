@@ -20,6 +20,9 @@
 # production
 /build
 
+# downloaded artifacts
+/public/cv.md
+
 # misc
 .DS_Store
 *.pem

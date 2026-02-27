@@ -6,26 +6,30 @@ import remarkGfm from 'remark-gfm'
 import { X, Download } from 'lucide-react'
 
 const REPO = 'AndSanG/andsang.github.io'
-const CV_MD_URL  = `https://github.com/${REPO}/releases/latest/download/cv.md`
 const CV_PDF_URL = `https://github.com/${REPO}/releases/latest/download/cv.pdf`
 
 export function CvDialog() {
     const [open, setOpen] = useState(false)
     const [content, setContent] = useState<string | null>(null)
+    const [available, setAvailable] = useState<boolean | null>(null)
 
-    // Fetch markdown content once (lazy, on first open)
+    // Fetch from own origin — cv.md is copied to public/ by the update-cv workflow
     useEffect(() => {
-        if (!open || content !== null) return
-        fetch(CV_MD_URL)
-            .then(res => res.ok ? res.text() : Promise.reject(res.status))
-            .then(setContent)
-            .catch(() => setContent(''))
-    }, [open, content])
+        fetch('/cv.md')
+            .then(res => {
+                if (!res.ok) throw new Error()
+                return res.text()
+            })
+            .then(text => { setContent(text); setAvailable(true) })
+            .catch(() => setAvailable(false))
+    }, [])
 
     useEffect(() => {
         document.body.style.overflow = open ? 'hidden' : ''
         return () => { document.body.style.overflow = '' }
     }, [open])
+
+    if (!available) return null
 
     return (
         <>

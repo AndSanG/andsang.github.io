@@ -8,29 +8,29 @@ export class InMemoryProjectRepository implements ProjectRepository {
 
         const bancolombia: Project = {
             id: 'bancolombia',
-            title: 'Bancolombia Mobile Banking',
+            title: 'Tier-1 Mobile Banking App',
             role: 'Senior iOS Engineer',
-            description: 'High-availability banking app serving 10M+ users daily. Engineered to withstand massive transaction loads while maintaining fluid UX.',
-            challenge: 'Achieving 99.5% uptime and strict SLA adherence while modernizing legacy architecture to VIPER/TCA.',
-            techStack: ['Swift', 'VIPER', 'AWS', 'Firebase', 'Security']
+            description: 'High-availability banking app serving 10M+ active users daily across Latin America. Engineered to withstand massive transaction loads while maintaining fluid UX under strict SLA and regulatory requirements.',
+            challenge: 'Achieving 99.5% uptime and 95% on-time SLA resolution while modernizing a legacy MVC codebase to VIPER/TCA and maintaining ISO 27001 and OWASP MASVS compliance.',
+            techStack: ['Swift', 'VIPER', 'TCA', 'Combine', 'Firebase', 'freeRASP']
         }
 
         const whiteLabel: Project = {
             id: 'whitelabel',
             title: 'Server-Driven UI Platform',
-            role: 'Architecture Lead',
-            description: 'An adaptive banking interface system used by multiple regional financial institutions, allowing remote UI updates without app store releases.',
-            challenge: 'Reduced feature deployment time by 60% by implementing detailed backend-driven layout logic.',
-            techStack: ['Swift', 'Combine', 'Server-Driven UI', 'GraphQL']
+            role: 'Senior iOS Engineer',
+            description: 'An adaptive white-label banking interface used by multiple regional financial institutions across Latin America, enabling remote UI updates without App Store releases. Utilized Combine to render backend-driven layouts at runtime.',
+            challenge: 'Reducing feature deployment time by 60% by implementing backend-driven layout logic, enabling centralized UI management and eliminating per-client release cycles.',
+            techStack: ['Swift', 'Combine', 'Server-Driven UI', 'GraphQL', 'AWS', 'Apollo']
         }
 
-        const portfolio: Project = {
-            id: 'portfolio',
-            title: 'Next.js Performance Portfolio',
-            role: 'Full Stack Developer',
-            description: 'A dedicated showcase of Vercel\'s Agent Skills & React Best Practices, including waterfall elimination and zero-bundle actions.',
-            challenge: 'Implementing advanced performance patterns like parallel fetching and static optimization from scratch.',
-            techStack: ['Next.js 15', 'React Server Components', 'Tailwind', 'Vercel']
+        const supercines: Project = {
+            id: 'supercines',
+            title: 'Cinema & Entertainment Platform',
+            role: 'iOS Developer',
+            description: 'Full-featured cinema app for a leading theater chain. Built a custom interactive seat-selection SDK from scratch and integrated PCI DSS-compliant payment processing with CoreData persistence for offline functionality.',
+            challenge: 'Designing a reusable, pixel-accurate seat map SDK with custom touch handling, then integrating a compliant payment gateway under strict PCI DSS requirements.',
+            techStack: ['Swift', 'Objective-C', 'UIKit', 'CoreData', 'MapKit', 'PCI DSS']
         }
 
         // Simulating parallel fetching delays from the original file
@@ -40,6 +40,6 @@ export class InMemoryProjectRepository implements ProjectRepository {
             new Promise(resolve => setTimeout(resolve, 300))
         ])
 
-        return [bancolombia, whiteLabel, portfolio]
+        return [bancolombia, whiteLabel, supercines]
     }
 }

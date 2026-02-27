@@ -5,40 +5,40 @@ export class InMemoryExperienceRepository implements ExperienceRepository {
     async getExperiences(): Promise<Experience[]> {
         return [
             {
-                id: "2024",
-                year: "2024 - Present",
+                id: "2020",
+                year: "2020 - 2025",
                 title: "Senior iOS Engineer",
-                company: "Tech Giant Corp",
-                description: "Leading the mobile architecture migration to SwiftUI and modularizing the codebase for faster build times.",
+                company: "iuvity (Todo1 Services Inc.)",
+                description: "Engineered high-availability banking apps for a Tier-1 bank (10M+ users) and regional institutions. Drove architecture modernization from MVC/MVVM to VIPER/TCA, improving testability by 40%. Implemented Server-Driven UI, cutting feature deployment time by 60%.",
                 iconName: 'User',
                 color: "text-orange-500"
             },
             {
-                id: "2022",
-                year: "2022 - 2024",
-                title: "Mobile Dept. Lead",
-                company: "Innovative Startups Inc.",
-                description: "Managed a team of 5 developers, established CI/CD pipelines, and reduced crash/error rates by 40%.",
+                id: "2018",
+                year: "2018 - 2020",
+                title: "MSc Applied Computer Science",
+                company: "Vrije Universiteit Brussel — Brussels, Belgium",
+                description: "Government-funded scholarship. Graduated with Distinction. Thesis: Minimalistic AI Architectures for Language Models — developed a cognitive architecture for explainable AI bridging statistical language modeling and brain-inspired predictive processing.",
+                iconName: 'GraduationCap',
+                color: "text-purple-500"
+            },
+            {
+                id: "2017",
+                year: "2017 - 2018",
+                title: "Mid-level iOS Developer",
+                company: "iuvity (Todo1 Services Inc.)",
+                description: "Served as de facto team leader for a distributed team of providers. Refactored legacy Objective-C codebases to Swift, developed banking UI features for a regional bank in Panama, and managed App Store releases via TestFlight and early CI/CD pipelines with Fastlane and Jenkins.",
                 iconName: 'Briefcase',
                 color: "text-blue-500"
             },
             {
-                id: "2020",
-                year: "2020 - 2022",
+                id: "2015",
+                year: "2015 - 2017",
                 title: "iOS Developer",
-                company: "App Solutions Ltd.",
-                description: "Developed and launched 3 major apps on the App Store, featuring real-time data synchronization.",
+                company: "Bayteq Cia Ltda",
+                description: "Built a cinema app with a custom seat-selection SDK and PCI DSS-compliant payments. Developed white-label mobile banking for regional banks and integrated biometric identity verification for a financial client. Participated in a 20-week Agile transformation initiative.",
                 iconName: 'Code',
                 color: "text-green-500"
-            },
-            {
-                id: "2018",
-                year: "2018 - 2020",
-                title: "Junior Developer",
-                company: "Web & Mobile Studio",
-                description: "Collaborated on cross-platform projects using React Native and assisted in backend API integration.",
-                iconName: 'GraduationCap',
-                color: "text-purple-500"
             }
         ]
     }

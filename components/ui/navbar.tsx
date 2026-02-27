@@ -17,13 +17,6 @@ export function Navbar() {
                 <div className="container mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
                     <a href="#hero" className="block hover:opacity-80 transition-opacity flex gap-4">
                         <Image
-                            src="/apple-logo.png"
-                            alt="Apple Logo"
-                            width={40}
-                            height={40}
-                            className="w-10 h-10 object-contain invert dark:invert-0"
-                        />
-                        <Image
                             src="/swift-logo.png"
                             alt="Swift Logo"
                             width={40}

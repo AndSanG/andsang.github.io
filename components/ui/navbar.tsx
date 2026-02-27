@@ -11,7 +11,7 @@ export function Navbar() {
                         alt="Apple Logo"
                         width={40}
                         height={40}
-                        className="w-10 h-10 object-contain dark:invert"
+                        className="w-10 h-10 object-contain invert dark:invert-0"
                     />
                     <Image
                         src="/swift-logo.png"
@@ -19,6 +19,13 @@ export function Navbar() {
                         width={40}
                         height={40}
                         className="w-10 h-10 object-contain"
+                    />
+                    <Image
+                        src="/tri.png"
+                        alt="Triathlon"
+                        width={40}
+                        height={40}
+                        className="w-10 h-10 object-contain dark:invert"
                     />
                 </a>
 
@@ -29,6 +36,9 @@ export function Navbar() {
                         </a>
                         <a href="#projects" className="text-sm font-medium text-zinc-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors">
                             Projects
+                        </a>
+                        <a href="#more-about" className="text-sm font-medium text-zinc-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors">
+                            More
                         </a>
                         <a href="#contact" className="text-sm font-medium text-zinc-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors">
                             Contact

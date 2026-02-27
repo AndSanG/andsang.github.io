@@ -7,7 +7,7 @@ export default function Playground() {
             <header className="mb-12 text-center max-w-2xl">
                 <h1 className="text-4xl font-bold mb-4">React Best Practices</h1>
                 <p className="text-xl text-gray-500 mb-8">
-                    A test drive of Vercel's recommendations for high-performance Next.js applications.
+                    A test drive of Vercel&apos;s recommendations for high-performance Next.js applications.
                 </p>
                 <div className="flex gap-4 justify-center text-sm">
                     <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100">Waterfall Elimination</span>

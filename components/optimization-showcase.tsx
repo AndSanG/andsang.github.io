@@ -1,5 +1,3 @@
-import { Suspense } from 'react'
-
 async function getUserStats() {
     await new Promise(resolve => setTimeout(resolve, 1500))
     return { visitors: 1234, conversions: 56 }
@@ -11,6 +9,7 @@ async function getSystemStatus() {
 }
 
 export default async function OptimizationShowcase() {
+    // eslint-disable-next-line react-hooks/purity
     const start = Date.now()
 
     // PARALLEL FETCHING (Eliminating Waterfalls)
@@ -20,6 +19,7 @@ export default async function OptimizationShowcase() {
 
     const [stats, status] = await Promise.all([statsData, statusData])
 
+    // eslint-disable-next-line react-hooks/purity
     const duration = Date.now() - start
 
     return (

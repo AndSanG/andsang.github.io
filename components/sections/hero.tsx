@@ -37,14 +37,14 @@ export function Hero() {
                 {/* Image Column */}
                 <div className="relative h-[400px] md:h-[600px] w-full order-1 md:order-2">
                     {/* Gradient Mask to blend image into black background */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-background dark:from-black via-transparent to-transparent z-20" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background dark:to-black z-20" />
+
+
 
                     <Image
                         src="/profile-cutout.png"
                         alt="Andres Sanchez"
                         fill
-                        className="object-cover grayscale opacity-90"
+                        className="object-cover"
                         priority
                         sizes="(max-width: 768px) 100vw, 50vw"
                     />

@@ -17,9 +17,11 @@ export async function Hero() {
                         <span className="text-accent">High-Availability</span> <br />
                         Mobile Apps
                     </h1>
-                    <p className="text-zinc-500 dark:text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed">
-                        {about.heroDescription}
-                    </p>
+                    <div className="flex flex-col gap-3 text-zinc-500 dark:text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed">
+                        {about.heroDescription.map((line, i) => (
+                            <p key={i}>{line}</p>
+                        ))}
+                    </div>
 
                     <div className="flex gap-4 mt-4">
                         <a

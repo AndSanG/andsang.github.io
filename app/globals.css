@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -8,17 +10,18 @@
   --color-accent: var(--accent);
 }
 
+/* Light Theme (Default) */
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --accent: #7c3aed;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Dark Theme (Class-based) */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --accent: #7c3aed;
 }
 
 body {

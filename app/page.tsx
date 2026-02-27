@@ -6,7 +6,7 @@ import { ContactSection } from '@/components/sections/contact'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-background">
       <Navbar />
       <Hero />
       <ProjectsSection />

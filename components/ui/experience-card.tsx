@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Experience } from "@/src/entities/experience"
 
 interface ExperienceCardProps {
@@ -7,11 +8,7 @@ interface ExperienceCardProps {
     isEven: boolean
 }
 
-import { ExperiencePresenter } from "@/src/interface-adapters/presenters/experience-presenter"
-
 export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
-    const IconComponent = ExperiencePresenter.getIconComponent(experience.iconName)
-
     return (
         <div className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''}`}>
 
@@ -32,13 +29,14 @@ export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
                 </div>
             </div>
 
-            {/* Timeline Node (Icon) */}
-            <div className={`
-                absolute left-8 md:left-1/2 transform -translate-x-1/2 flex items-center justify-center
-                w-12 h-12 md:w-16 md:h-16 rounded-full bg-white dark:bg-black border-4 border-zinc-200 dark:border-zinc-900 z-10
-                ${experience.color}
-            `}>
-                <IconComponent className="w-5 h-5 md:w-8 md:h-8" />
+            {/* Timeline Node (Image) */}
+            <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full bg-white dark:bg-black border-4 border-zinc-200 dark:border-zinc-900 z-10 overflow-hidden">
+                <Image
+                    src={experience.imagePath}
+                    alt={experience.company}
+                    fill
+                    className="object-cover"
+                />
             </div>
 
             {/* Connection Line (Desktop) */}

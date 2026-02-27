@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { aboutController } from '@/src/di'
+import { CvDialog } from '@/components/ui/cv-dialog'
 
 export async function Hero() {
     const about = await aboutController.getAbout()
@@ -36,6 +37,7 @@ export async function Hero() {
                         >
                             Contact Me
                         </a>
+                        <CvDialog />
                     </div>
                 </div>
 

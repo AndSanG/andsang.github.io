@@ -24,7 +24,7 @@ export function Navbar() {
 
                 <div className="flex gap-6 items-center">
                     <div className="hidden md:flex gap-8">
-                        <a href="#hero" className="text-sm font-medium text-zinc-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors">
+                        <a href="#about" className="text-sm font-medium text-zinc-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors">
                             About
                         </a>
                         <a href="#projects" className="text-sm font-medium text-zinc-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors">

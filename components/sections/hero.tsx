@@ -41,7 +41,7 @@ export function Hero() {
 
 
                     <Image
-                        src="/profile-cutout.png"
+                        src="/profile-cutout.webp"
                         alt="Andres Sanchez"
                         fill
                         className="object-cover"

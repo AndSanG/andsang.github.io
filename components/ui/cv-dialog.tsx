@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { X, Download } from 'lucide-react'
@@ -40,7 +41,7 @@ export function CvDialog() {
                 View CV
             </button>
 
-            {open && (
+            {open && createPortal(
                 <div
                     className="fixed inset-0 z-50 flex items-center justify-center p-4"
                     role="dialog"
@@ -106,7 +107,8 @@ export function CvDialog() {
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
         </>
     )

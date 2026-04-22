@@ -7,7 +7,10 @@ name: Deploy Next.js site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main", "master", "feat/MVP"] # Including current working branch as well for testing
+    branches: ["master"] # Including current working branch as well for testing
+
+  pull_request:
+    branches: ["master"]
 
   # Rebuild the site when a new CV is published
   release:

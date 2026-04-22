@@ -5,17 +5,20 @@ import { ProjectsSection } from '@/components/sections/projects'
 import { ExperienceSection } from '@/components/sections/experience'
 import { MoreAboutSection } from '@/components/sections/more-about'
 import { ContactSection } from '@/components/sections/contact'
+import { PageTransition } from '@/components/ui/page-transition'
 
 export default function Home() {
   return (
     <main id="main-content" className="min-h-screen bg-background">
       <Navbar />
-<Hero />
-      <AboutSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      <MoreAboutSection />
-      <ContactSection />
+      <PageTransition>
+        <Hero />
+        <AboutSection />
+        <ProjectsSection />
+        <ExperienceSection />
+        <MoreAboutSection />
+        <ContactSection />
+      </PageTransition>
     </main>
   )
 }

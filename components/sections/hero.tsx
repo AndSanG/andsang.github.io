@@ -3,6 +3,7 @@ import { aboutController } from '@/src/di'
 import { CvDialog } from '@/components/ui/cv-dialog'
 import { HeroImage } from '@/components/ui/hero-image'
 import { AnimatedMarquee } from '@/components/ui/animated-marquee'
+import { TactileButton } from '@/components/ui/tactile-button'
 
 export async function Hero() {
     const about = await aboutController.getAbout()
@@ -26,19 +27,19 @@ export async function Hero() {
                         ))}
                     </div>
 
-                    <div className="flex gap-4 mt-4">
-                        <a
+                    <div className="flex gap-4 mt-4 items-center">
+                        <TactileButton
                             href="#projects"
                             className="px-8 py-3 rounded-xl border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-black transition-all duration-300"
                         >
                             View Work
-                        </a>
-                        <a
+                        </TactileButton>
+                        <TactileButton
                             href="#contact"
                             className="px-8 py-3 rounded-xl border-2 border-transparent text-zinc-500 dark:text-gray-400 font-semibold hover:text-zinc-900 dark:hover:text-white transition-all duration-300"
                         >
                             Contact Me
-                        </a>
+                        </TactileButton>
                         <CvDialog />
                     </div>
 

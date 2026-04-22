@@ -1,8 +1,13 @@
+"use client"
 import { Project } from '@/src/entities/project'
+import { motion } from 'framer-motion'
 
 export function ProjectCard({ project }: { project: Project }) {
     return (
-        <div className="glass-card p-6 hover:border-accent/50 transition-colors">
+        <motion.div 
+            whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(99,102,241,0.2)" }}
+            className="glass-card p-6 hover:backdrop-blur-xl transition-all duration-300"
+        >
             <h3 className="font-heading tracking-tight text-xl font-bold text-zinc-900 dark:text-white mb-2">{project.title}</h3>
             <p className="text-accent text-sm font-medium mb-4">{project.role}</p>
 
@@ -24,6 +29,6 @@ export function ProjectCard({ project }: { project: Project }) {
                     </span>
                 ))}
             </div>
-        </div>
+        </motion.div>
     )
 }

@@ -1,7 +1,38 @@
+"use client"
 import Image from 'next/image'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
+import { useState, useEffect } from 'react'
+import { motion, useScroll } from 'framer-motion'
 
 export function Navbar() {
+    const { scrollYProgress } = useScroll()
+    const [activeSection, setActiveSection] = useState("")
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id)
+                    }
+                })
+            },
+            { rootMargin: "-20% 0px -80% 0px" }
+        )
+
+        const sections = document.querySelectorAll("section[id]")
+        sections.forEach((section) => observer.observe(section))
+
+        return () => observer.disconnect()
+    }, [])
+
+    const navLinks = [
+        { name: "About", href: "#about" },
+        { name: "Projects", href: "#projects" },
+        { name: "More", href: "#more-about" },
+        { name: "Contact", href: "#contact" },
+    ]
+
     return (
         <>
             <a
@@ -10,6 +41,13 @@ export function Navbar() {
             >
                 Skip to content
             </a>
+            
+            {/* Scroll Progress Bar */}
+            <motion.div
+                className="fixed top-0 left-0 right-0 h-[2px] bg-accent z-[60] origin-left"
+                style={{ scaleX: scrollYProgress }}
+            />
+
             <nav
                 aria-label="Main navigation"
                 className="fixed top-0 left-0 right-0 z-50 glass-card !rounded-none !border-x-0 !border-t-0 transition-colors"
@@ -33,18 +71,19 @@ export function Navbar() {
                     </a>
 
                     <div className="hidden md:flex items-center gap-8">
-                        <a href="#about" className="text-sm font-medium text-zinc-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
-                            About
-                        </a>
-                        <a href="#projects" className="text-sm font-medium text-zinc-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
-                            Projects
-                        </a>
-                        <a href="#more-about" className="text-sm font-medium text-zinc-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
-                            More
-                        </a>
-                        <a href="#contact" className="text-sm font-medium text-zinc-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
-                            Contact
-                        </a>
+                        {navLinks.map((link) => (
+                            <a 
+                                key={link.name}
+                                href={link.href} 
+                                className={`text-sm font-medium transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500
+                                ${activeSection === link.href.substring(1) 
+                                    ? "text-accent dark:text-accent" 
+                                    : "text-zinc-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent"}`
+                                }
+                            >
+                                {link.name}
+                            </a>
+                        ))}
                         <ThemeToggle />
                     </div>
                 </div>

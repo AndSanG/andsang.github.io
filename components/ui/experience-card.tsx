@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { Experience } from "@/src/entities/experience"
+import { motion } from "framer-motion"
 
 interface ExperienceCardProps {
     experience: Experience
@@ -14,8 +15,10 @@ export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
 
             {/* Content Side */}
             <div className="w-full md:w-1/2 pl-16 md:px-12">
-                <div className={`
-                    relative z-10 glass-card p-6 transition-all duration-300
+                <motion.div 
+                    whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(99,102,241,0.2)" }}
+                    className={`
+                    relative z-10 glass-card p-6 transition-all duration-300 hover:backdrop-blur-xl
                     ${isEven ? 'md:text-left' : 'md:text-right'}
                  `}>
                     <span className={`inline-block px-3 py-1 rounded-full bg-zinc-200 dark:bg-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 mb-3 font-mono`}>
@@ -26,7 +29,7 @@ export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
                     <p className="text-zinc-500 text-sm leading-relaxed">
                         {experience.description}
                     </p>
-                </div>
+                </motion.div>
             </div>
 
             {/* Timeline Node (Image) */}

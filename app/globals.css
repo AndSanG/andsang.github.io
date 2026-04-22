@@ -38,3 +38,9 @@ body {
     @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl;
   }
 }
+
+@keyframes shine {
+  100% {
+    transform: translateX(200%);
+  }
+}

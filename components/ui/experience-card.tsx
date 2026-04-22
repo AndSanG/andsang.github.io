@@ -15,13 +15,13 @@ export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
             {/* Content Side */}
             <div className="w-full md:w-1/2 pl-16 md:px-12">
                 <div className={`
-                    relative z-10 bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300
+                    relative z-10 glass-card p-6 transition-all duration-300
                     ${isEven ? 'md:text-left' : 'md:text-right'}
                  `}>
                     <span className={`inline-block px-3 py-1 rounded-full bg-zinc-200 dark:bg-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 mb-3 font-mono`}>
                         {experience.year}
                     </span>
-                    <h3 className={`text-xl font-bold text-foreground dark:text-white mb-1 ${experience.color}`}>{experience.title}</h3>
+                    <h3 className={`font-heading tracking-tight text-xl font-bold text-foreground dark:text-white mb-1 ${experience.color}`}>{experience.title}</h3>
                     <p className="text-zinc-400 text-sm mb-3 font-medium">{experience.company}</p>
                     <p className="text-zinc-500 text-sm leading-relaxed">
                         {experience.description}

@@ -2,8 +2,8 @@ import { Project } from '@/src/entities/project'
 
 export function ProjectCard({ project }: { project: Project }) {
     return (
-        <div className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 hover:border-accent/50 transition-colors">
-            <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">{project.title}</h3>
+        <div className="glass-card p-6 hover:border-accent/50 transition-colors">
+            <h3 className="font-heading tracking-tight text-xl font-bold text-zinc-900 dark:text-white mb-2">{project.title}</h3>
             <p className="text-accent text-sm font-medium mb-4">{project.role}</p>
 
             <div className="space-y-4 text-gray-400 text-sm">

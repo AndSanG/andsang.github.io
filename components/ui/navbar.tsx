@@ -12,7 +12,7 @@ export function Navbar() {
             </a>
             <nav
                 aria-label="Main navigation"
-                className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/50 dark:bg-black/50 border-b border-black/5 dark:border-white/10 transition-colors"
+                className="fixed top-0 left-0 right-0 z-50 glass-card !rounded-none !border-x-0 !border-t-0 transition-colors"
             >
                 <div className="container mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
                     <a href="#hero" className="block hover:opacity-80 transition-opacity flex gap-4">

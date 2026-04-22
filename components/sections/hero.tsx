@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { aboutController } from '@/src/di'
 import { CvDialog } from '@/components/ui/cv-dialog'
+import { HeroImage } from '@/components/ui/hero-image'
+import { AnimatedMarquee } from '@/components/ui/animated-marquee'
 
 export async function Hero() {
     const about = await aboutController.getAbout()
@@ -39,22 +41,15 @@ export async function Hero() {
                         </a>
                         <CvDialog />
                     </div>
+
+                    <div className="mt-12 w-full max-w-lg">
+                        <AnimatedMarquee items={about.skills} />
+                    </div>
                 </div>
 
                 {/* Image Column */}
-                <div className="relative h-[400px] md:h-[600px] w-full order-1 md:order-2">
-                    {/* Gradient Mask to blend image into black background */}
-
-
-
-                    <Image
-                        src="/profile-cutout.webp"
-                        alt="Andres Sanchez"
-                        fill
-                        className="object-cover"
-                        priority
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                    />
+                <div className="order-1 md:order-2 flex items-center justify-center">
+                    <HeroImage />
                 </div>
             </div>
 

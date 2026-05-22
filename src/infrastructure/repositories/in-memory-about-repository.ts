@@ -13,16 +13,13 @@ export class InMemoryAboutRepository implements AboutRepository {
                 "Structure creates freedom, details create intuition, discipline creates flow."
             ],
             bio: [
-                "At Bancolombia — one of Latin America's largest banks — Andrés owned the iOS layer on a production app serving 10M+ active users at 99.5% availability. That meant driving architecture from MVC to state-driven patterns, owning security compliance end-to-end — SSL pinning, jailbreak detection, FaceID, Apple Pay — and being the last line before anything reached 10 million people. The iOS native layer is where he lives; everything else is built on top of it.",
-                "At iuvity, he held technical ownership across the iuviBANKING platform — the iOS native layer, React Native, and React microfrontends — as production certification authority across teams. Throughout: OWASP MASVS, PCI DSS, and ISO 27001, validated through bi-annual external audits.",
-                "He's drawn to the hard parts: the native layer, the compliance requirements, the failures that only surface under real load.",
-                "He holds an MSc in Applied Computer Science from Vrije Universiteit Brussel (Belgium), completed with distinction and funded by an Ecuadorian Government scholarship. His thesis explored minimalistic AI architectures for language models. He also holds a BSc in Electronics Engineering, graduated valedictorian of his cohort, with a publication in IEEE Xplore.",
+                "Andrés has spent 8+ years building iOS banking apps for millions of users — at Bancolombia, at 99.5% availability, through bi-annual security audits, under real production load.",
+                "His work spans the full mobile stack, but the iOS native layer is where he's always gone deepest — from MVC to state-driven architecture, from architecture patterns to security compliance and production observability.",
             ],
             stats: [
                 { label: "Years of Experience", value: "8+" },
                 { label: "App Uptime", value: "99.5%" },
                 { label: "Active Users", value: "10M+" },
-                { label: "Faster Deployments", value: "60%" },
             ],
             skills: [
                 "Swift", "SwiftUI", "UIKit", "Combine",

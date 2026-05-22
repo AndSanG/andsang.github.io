@@ -14,8 +14,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Andres Sanchez - Senior iOS Engineer",
-  description: "High-Availability Mobile & Web Solutions",
+  title: "Andrés Sánchez - Senior iOS Engineer",
+  description: "Senior iOS Engineer with 8+ years delivering resilient mobile banking apps for millions of users across Latin America.",
 };
 
 export const viewport: Viewport = {

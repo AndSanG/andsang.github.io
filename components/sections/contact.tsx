@@ -11,7 +11,7 @@ export async function ContactSection() {
                     Get in <span className="text-accent">Touch</span>
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
                     {/* Location */}
                     <div className="flex flex-col items-center gap-3 text-center">
                         <div className="p-4 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-accent">

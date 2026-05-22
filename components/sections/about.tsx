@@ -1,8 +1,7 @@
 import { aboutController } from "@/src/di"
-import { AboutStat } from "@/src/entities/about"
 import { Reveal } from "@/components/ui/reveal"
 import { AnimatedStats } from "@/components/ui/animated-stats"
-import { AnimatedSkills } from "@/components/ui/animated-skills"
+import { AnimatedMarquee } from '@/components/ui/animated-marquee'
 
 export async function AboutSection() {
     const about = await aboutController.getAbout()
@@ -34,26 +33,14 @@ export async function AboutSection() {
                     <AnimatedStats stats={about.stats} />
                 </div>
 
-                {/* Skills */}
-                <div className="max-w-4xl mx-auto mt-16">
-                    <Reveal delay={0.3}>
-                        <h3 className="text-xl font-semibold text-foreground dark:text-white mb-6">Core Skills</h3>
-                    </Reveal>
-                    <AnimatedSkills skills={about.skills} />
+                {/* Skills Marquee */}
+                <div className="w-full mt-16">
+                    <AnimatedMarquee items={about.skills} />
                 </div>
             </div>
 
             {/* Background glow */}
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#7c3aed] opacity-5 blur-[120px] rounded-full pointer-events-none" />
         </section>
-    )
-}
-
-function StatItem({ stat }: { stat: AboutStat }) {
-    return (
-        <div className="flex flex-col gap-1">
-            <span className="text-xs font-medium text-zinc-400 dark:text-gray-500 uppercase tracking-wider">{stat.label}</span>
-            <span className="text-lg font-bold text-foreground dark:text-white">{stat.value}</span>
-        </div>
     )
 }

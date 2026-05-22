@@ -1,15 +1,13 @@
-import Image from 'next/image'
 import { aboutController } from '@/src/di'
 import { CvDialog } from '@/components/ui/cv-dialog'
 import { HeroImage } from '@/components/ui/hero-image'
-import { AnimatedMarquee } from '@/components/ui/animated-marquee'
 import { TactileButton } from '@/components/ui/tactile-button'
 
 export async function Hero() {
     const about = await aboutController.getAbout()
 
     return (
-        <section id="hero" className="relative w-full min-h-screen flex items-center bg-background dark:bg-black text-foreground dark:text-white overflow-hidden pt-20">
+        <section id="hero" className="relative w-full min-h-screen flex items-center bg-background dark:bg-black text-foreground dark:text-white overflow-x-hidden pt-20">
             <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
                 {/* Text Column */}
                 <div className="flex flex-col items-start gap-6 order-2 md:order-1">
@@ -42,16 +40,13 @@ export async function Hero() {
                         </TactileButton>
                         <CvDialog />
                     </div>
-
-                    <div className="mt-12 w-full max-w-lg">
-                        <AnimatedMarquee items={about.skills} />
-                    </div>
                 </div>
 
                 {/* Image Column */}
                 <div className="order-1 md:order-2 flex items-center justify-center">
                     <HeroImage />
                 </div>
+
             </div>
 
             {/* Background Glow Effect */}

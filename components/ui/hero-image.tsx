@@ -5,18 +5,19 @@ import { motion } from 'framer-motion'
 export function HeroImage() {
     return (
         <motion.div 
-            className="relative h-[400px] md:h-[600px] w-full"
+            className="flex items-center justify-center w-full"
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
         >
             <Image
                 src="/profile-cutout.webp"
                 alt="Andres Sanchez"
-                fill
-                className="object-cover"
+                width={800}
+                height={926}
+                className="w-auto h-auto max-h-[350px] md:max-h-[500px] object-contain"
                 priority
-                sizes="(max-width: 768px) 100vw, 50vw"
             />
         </motion.div>
     )
 }
+

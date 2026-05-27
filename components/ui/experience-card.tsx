@@ -1,34 +1,75 @@
 "use client"
 
 import Image from "next/image"
+import { useState } from "react"
 import { ExperienceViewModel } from "@/src/interface-adapters/presenters/experience-presenter"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronDown } from "lucide-react"
 
 interface ExperienceCardProps {
     experience: ExperienceViewModel
     isEven: boolean
 }
 
+// ~2 lines at text-sm / leading-relaxed (14px × 1.625 × 2 ≈ 46px)
+const TEASER_HEIGHT = "2.875rem"
+
 export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
+    const [isOpen, setIsOpen] = useState(false)
+
     return (
         <div className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''}`}>
 
             {/* Content Side */}
             <div className="w-full md:w-1/2 pl-16 md:px-12">
-                <motion.div 
+                <motion.div
                     whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(99,102,241,0.2)" }}
                     className={`
                     relative z-10 glass-card p-6 transition-all duration-300 hover:backdrop-blur-xl
                     ${isEven ? 'md:text-left' : 'md:text-right'}
                  `}>
-                    <span className={`inline-block px-3 py-1 rounded-full bg-zinc-200 dark:bg-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 mb-3 font-mono`}>
+                    <span className="inline-block px-3 py-1 rounded-full bg-zinc-200 dark:bg-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 mb-3 font-mono">
                         {experience.year}
                     </span>
-                    <h3 className={`font-heading tracking-tight text-xl font-bold text-foreground dark:text-white mb-1 ${experience.color}`}>{experience.title}</h3>
+                    <h3 className={`font-heading tracking-tight text-xl font-bold text-foreground dark:text-white mb-1 ${experience.color}`}>
+                        {experience.title}
+                    </h3>
                     <p className="text-zinc-400 text-sm mb-3 font-medium">{experience.company}</p>
-                    <p className="text-zinc-500 text-sm leading-relaxed">
-                        {experience.description}
-                    </p>
+
+                    {/* Teaser + expand */}
+                    <motion.div
+                        animate={{ height: isOpen ? "auto" : TEASER_HEIGHT }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                    >
+                        <p className="text-zinc-500 text-sm leading-relaxed">
+                            {experience.description}
+                        </p>
+                    </motion.div>
+
+                    <button
+                        onClick={() => setIsOpen(prev => !prev)}
+                        className={`mt-2 flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors w-full ${isEven ? 'md:justify-start' : 'md:justify-end'}`}
+                        aria-expanded={isOpen}
+                    >
+                        <AnimatePresence mode="wait" initial={false}>
+                            <motion.span
+                                key={isOpen ? "less" : "more"}
+                                initial={{ opacity: 0, y: -4 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 4 }}
+                                transition={{ duration: 0.15 }}
+                            >
+                                {isOpen ? "Show less" : "Read more"}
+                            </motion.span>
+                        </AnimatePresence>
+                        <motion.span
+                            animate={{ rotate: isOpen ? 180 : 0 }}
+                            transition={{ duration: 0.25 }}
+                        >
+                            <ChevronDown size={12} />
+                        </motion.span>
+                    </button>
                 </motion.div>
             </div>
 

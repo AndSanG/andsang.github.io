@@ -49,8 +49,12 @@ export async function Hero() {
 
             </div>
 
-            {/* Background Glow Effect */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#7c3aed] opacity-5 blur-[120px] rounded-full pointer-events-none" />
+            {/* Background Fluid Blobs */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+                <div className="fluid-shape fluid-shape-1" />
+                <div className="fluid-shape fluid-shape-2" />
+                <div className="fluid-shape fluid-shape-3" />
+            </div>
         </section>
     )
 }

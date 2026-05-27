@@ -5,4 +5,5 @@ export interface Project {
     description: string
     challenge: string
     techStack: string[]
+    imagePath?: string
 }

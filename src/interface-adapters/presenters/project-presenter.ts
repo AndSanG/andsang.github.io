@@ -7,6 +7,7 @@ export interface ProjectViewModel {
     description: string
     challenge: string
     techStack: string[]
+    imagePath?: string
 }
 
 export function presentProjects(projects: Project[]): ProjectViewModel[] {

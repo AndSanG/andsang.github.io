@@ -5,7 +5,7 @@ export async function ContactSection() {
     const contact = await contactController.getContact()
 
     return (
-        <section id="contact" className="py-24 bg-background dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-900">
+        <section id="contact" className="py-16 bg-background dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-900">
             <div className="container mx-auto px-6 md:px-12 text-center">
                 <h2 className="text-3xl md:text-5xl font-bold text-foreground dark:text-white mb-12">
                     Get in <span className="text-accent">Touch</span>

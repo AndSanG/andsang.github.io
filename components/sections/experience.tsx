@@ -5,7 +5,7 @@ export async function ExperienceSection() {
     const experiences = await experienceController.getExperiences()
 
     return (
-        <section id="experience" className="bg-background dark:bg-black py-24 border-t border-zinc-200 dark:border-zinc-900 relative overflow-hidden">
+        <section id="experience" className="bg-background dark:bg-black py-16 border-t border-zinc-200 dark:border-zinc-900 relative overflow-hidden">
             <div className="container mx-auto px-4 md:px-12 relative z-10">
                 <h2 className="text-3xl md:text-5xl font-bold text-foreground dark:text-white mb-20 text-center">
                     Professional <span className="text-accent">Journey</span>

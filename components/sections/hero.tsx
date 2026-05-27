@@ -1,10 +1,10 @@
-import { aboutController } from '@/src/di'
+import { getAbout } from '@/src/di'
 import { CvDialog } from '@/components/ui/cv-dialog'
 import { HeroImage } from '@/components/ui/hero-image'
 import { TactileButton } from '@/components/ui/tactile-button'
 
 export async function Hero() {
-    const about = await aboutController.getAbout()
+    const about = await getAbout()
 
     return (
         <section id="hero" className="relative w-full min-h-screen flex items-center bg-background dark:bg-black text-foreground dark:text-white overflow-x-hidden pt-20">
@@ -14,11 +14,11 @@ export async function Hero() {
                     <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                         {about.name}
                     </h1>
-                    <h1 className="text-4xl md:text-3xl font-bold leading-tight">
+                    <h2 className="text-4xl md:text-3xl font-bold leading-tight">
                         Developing <br />
                         <span className="text-accent">High-Availability</span> <br />
                         Mobile Apps
-                    </h1>
+                    </h2>
                     <div className="flex flex-col gap-3 text-zinc-500 dark:text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed">
                         {about.heroDescription.map((line, i) => (
                             <p key={i}>{line}</p>

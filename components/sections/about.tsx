@@ -1,10 +1,10 @@
-import { aboutController } from "@/src/di"
+import { getAbout } from "@/src/di"
 import { Reveal } from "@/components/ui/reveal"
 import { AnimatedStats } from "@/components/ui/animated-stats"
 import { AnimatedMarquee } from '@/components/ui/animated-marquee'
 
 export async function AboutSection() {
-    const about = await aboutController.getAbout()
+    const about = await getAbout()
 
     return (
         <section id="about" className="bg-background dark:bg-black py-24 border-t border-zinc-200 dark:border-zinc-900 relative overflow-hidden">

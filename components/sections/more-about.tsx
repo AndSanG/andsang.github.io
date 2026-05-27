@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import { aboutController } from "@/src/di"
+import { getAbout } from "@/src/di"
 
 export async function MoreAboutSection() {
-    const about = await aboutController.getAbout()
+    const about = await getAbout()
 
     return (
         <section id="more-about" className="bg-background dark:bg-black py-24 border-t border-zinc-200 dark:border-zinc-900 relative overflow-hidden">

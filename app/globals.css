@@ -18,9 +18,12 @@
   --foreground: #171717;
   --accent: #6366f1;
   --secondary: #10b981;
-  --blob-primary: #2563eb;   /* suit blue — hue 220°, full saturation */
-  --blob-secondary: #d97706; /* tie gold — hue 38°, full saturation */
-  --blob-tertiary: #9333ea;  /* shirt lavender — hue 285°, full saturation */
+  --blob-primary: #06e2ff;
+  /* suit blue — hue 220°, full saturation */
+  --blob-secondary: #d97706;
+  /* tie gold — hue 38°, full saturation */
+  --blob-tertiary: #9333ea;
+  /* shirt lavender — hue 285°, full saturation */
 }
 
 /* Dark Theme (Class-based) */
@@ -49,8 +52,13 @@ body {
 }
 
 @keyframes floatFluid {
-  0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
-  100% { transform: translate(30px, 50px) scale(1.1) rotate(10deg); }
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(30px, 50px) scale(1.1) rotate(10deg);
+  }
 }
 
 .fluid-shape {
@@ -91,5 +99,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fluid-shape { animation: none; }
+  .fluid-shape {
+    animation: none;
+  }
 }

@@ -4,18 +4,18 @@ import { motion } from 'framer-motion'
 
 export function ProjectCard({ project }: { project: ProjectViewModel }) {
     return (
-        <motion.div 
+        <motion.div
             whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(99,102,241,0.2)" }}
-            className="glass-card p-6 hover:backdrop-blur-xl transition-all duration-300"
+            className="glass-card p-6 hover:backdrop-blur-xl transition-all duration-300 flex flex-col h-full"
         >
             <h3 className="font-heading tracking-tight text-xl font-bold text-zinc-900 dark:text-white mb-2">{project.title}</h3>
             <p className="text-accent text-sm font-medium mb-4">{project.role}</p>
 
             <div className="space-y-4 text-gray-400 text-sm">
-                <p>{project.description}</p>
+                <p className="line-clamp-3 min-h-[3.75rem]">{project.description}</p>
                 <div className="bg-zinc-100 dark:bg-zinc-950 p-3 rounded-lg border border-zinc-200 dark:border-zinc-800/50">
                     <strong className="block text-zinc-600 dark:text-gray-300 mb-1 text-xs uppercase tracking-wider">Challenge</strong>
-                    {project.challenge}
+                    <p className="line-clamp-3 min-h-[3.75rem]">{project.challenge}</p>
                 </div>
             </div>
 

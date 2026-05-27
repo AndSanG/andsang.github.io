@@ -7,7 +7,7 @@ export async function Hero() {
     const about = await getAbout()
 
     return (
-        <section id="hero" className="relative w-full min-h-screen flex items-center bg-background dark:bg-black text-foreground dark:text-white overflow-x-hidden pt-20">
+        <section id="hero" className="relative w-full min-h-screen flex items-center bg-background dark:bg-black text-foreground dark:text-white overflow-x-hidden pt-20 pb-12 md:pb-0">
             <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
                 {/* Text Column */}
                 <div className="flex flex-col items-start gap-6 order-2 md:order-1">
@@ -25,7 +25,12 @@ export async function Hero() {
                         ))}
                     </p>
 
-                    <div className="flex gap-4 mt-4 items-center">
+                    {/* Mobile-only image, between description and CTAs */}
+                    <div className="md:hidden w-full flex items-center justify-center">
+                        <HeroImage />
+                    </div>
+
+                    <div className="flex flex-wrap gap-3 mt-2 md:mt-4 items-center">
                         <TactileButton
                             href="#projects"
                             className="px-8 py-3 rounded-xl border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-black transition-all duration-300"
@@ -42,8 +47,8 @@ export async function Hero() {
                     </div>
                 </div>
 
-                {/* Image Column */}
-                <div className="order-1 md:order-2 flex items-center justify-center">
+                {/* Image Column — desktop only */}
+                <div className="hidden md:flex md:order-2 items-center justify-center">
                     <HeroImage />
                 </div>
 

@@ -1,11 +1,11 @@
 "use client"
 
 import Image from "next/image"
-import { Experience } from "@/src/entities/experience"
+import { ExperienceViewModel } from "@/src/interface-adapters/presenters/experience-presenter"
 import { motion } from "framer-motion"
 
 interface ExperienceCardProps {
-    experience: Experience
+    experience: ExperienceViewModel
     isEven: boolean
 }
 

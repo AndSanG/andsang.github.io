@@ -1,10 +1,11 @@
 import { GetContactUseCase } from "../../application/use-cases/get-contact"
-import { Contact } from "../../entities/contact"
+import { ContactViewModel, presentContact } from "../presenters/contact-presenter"
 
 export class ContactController {
     constructor(private getContactUseCase: GetContactUseCase) { }
 
-    async getContact(): Promise<Contact> {
-        return this.getContactUseCase.execute()
+    async getContact(): Promise<ContactViewModel> {
+        const contact = await this.getContactUseCase.execute()
+        return presentContact(contact)
     }
 }

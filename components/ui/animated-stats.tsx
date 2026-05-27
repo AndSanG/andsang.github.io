@@ -1,6 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
-import { AboutStat } from "@/src/entities/about"
+import { AboutStatViewModel } from "@/src/interface-adapters/presenters/about-presenter"
 
 const container = {
   hidden: { opacity: 0 },
@@ -17,7 +17,7 @@ const item = {
   visible: { opacity: 1, y: 0 }
 }
 
-export function AnimatedStats({ stats }: { stats: AboutStat[] }) {
+export function AnimatedStats({ stats }: { stats: AboutStatViewModel[] }) {
   return (
     <motion.div 
         className="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col gap-5 glass-card"

@@ -1,8 +1,8 @@
 "use client"
-import { Project } from '@/src/entities/project'
+import { ProjectViewModel } from '@/src/interface-adapters/presenters/project-presenter'
 import { motion } from 'framer-motion'
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({ project }: { project: ProjectViewModel }) {
     return (
         <motion.div 
             whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(99,102,241,0.2)" }}

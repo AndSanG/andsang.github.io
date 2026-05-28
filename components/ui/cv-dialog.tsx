@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { X, Download } from 'lucide-react'
+import { TactileButton } from '@/components/ui/tactile-button'
 
 const REPO = 'AndSanG/andsang.github.io'
 const CV_PDF_URL = `https://github.com/${REPO}/releases/latest/download/cv.pdf`
@@ -34,12 +35,12 @@ export function CvDialog() {
 
     return (
         <>
-            <button
+            <TactileButton
                 onClick={() => setOpen(true)}
-                className="px-8 py-3 rounded-xl border-2 border-transparent text-zinc-500 dark:text-gray-400 font-semibold hover:text-zinc-900 dark:hover:text-white transition-all duration-300 flex items-center gap-2"
+                className="px-8 py-3 rounded-xl border-2 border-transparent text-zinc-500 dark:text-gray-400 font-semibold hover:text-zinc-900 dark:hover:text-white transition-all duration-300"
             >
                 View CV
-            </button>
+            </TactileButton>
 
             {open && createPortal(
                 <div

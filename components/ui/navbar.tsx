@@ -90,7 +90,7 @@ export function Navbar() {
                     animate={{ rotateY: tilt.x, rotateX: tilt.y }}
                     transition={{ type: "spring", stiffness: 300, damping: 25 }}
                     style={{ transformStyle: "preserve-3d" }}
-                    className="liquid-glass-distort max-w-3xl mx-auto pointer-events-auto rounded-2xl bg-white/70 dark:bg-zinc-900/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/60 dark:border-white/10 shadow-lg shadow-black/8 dark:shadow-black/30 ring-1 ring-inset ring-white/40 dark:ring-white/5 transition-colors"
+                    className="max-w-3xl mx-auto pointer-events-auto rounded-2xl bg-white/70 dark:bg-zinc-900/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/60 dark:border-white/10 shadow-lg shadow-black/8 dark:shadow-black/30 ring-1 ring-inset ring-white/40 dark:ring-white/5 transition-colors"
                 >
                 <div className="px-5 h-14 flex items-center justify-between">
                     <a href="#hero" className="block hover:opacity-80 transition-opacity flex gap-4">

@@ -39,16 +39,7 @@ export default function RootLayout({
           <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-500/5 blur-[100px]" />
           <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-purple-900/5 blur-[100px]" />
         </div>
-        {/* SVG filter for liquid glass edge refraction — referenced by .liquid-glass-distort */}
-        <svg aria-hidden="true" style={{ display: "none" }}>
-          <defs>
-            <filter id="liquid-glass-distort" x="-10%" y="-10%" width="120%" height="120%" colorInterpolationFilters="sRGB">
-              <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="92" result="noise" />
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G" />
-            </filter>
-          </defs>
-        </svg>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
       </body>

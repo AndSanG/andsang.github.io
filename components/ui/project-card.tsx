@@ -48,7 +48,7 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
                 >
                     <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">{project.description}</p>
 
-                    <div className="bg-zinc-100 dark:bg-zinc-950 p-3 rounded-lg border border-zinc-200 dark:border-zinc-800/50 mb-4">
+                    <div className="bg-white/50 dark:bg-white/5 backdrop-blur-sm p-3 rounded-lg border border-white/40 dark:border-white/8 mb-4">
                         <strong className="block text-zinc-600 dark:text-gray-300 mb-1 text-xs uppercase tracking-wider">Challenge</strong>
                         <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">{project.challenge}</p>
                     </div>
@@ -57,7 +57,7 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
                         {project.techStack.map((tech) => (
                             <span
                                 key={tech}
-                                className="inline-flex items-center px-2 py-1 text-xs rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-gray-300 border border-zinc-300 dark:border-zinc-700"
+                                className="inline-flex items-center px-2 py-1 text-xs rounded-full bg-white/50 dark:bg-white/8 backdrop-blur-sm text-zinc-600 dark:text-gray-300 border border-white/50 dark:border-white/10"
                             >
                                 {tech}
                             </span>

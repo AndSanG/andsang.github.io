@@ -4,7 +4,6 @@ import { ProjectViewModel } from '@/src/interface-adapters/presenters/project-pr
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
-// ~2 lines at text-sm / leading-relaxed (14px × 1.625 × 2 ≈ 46px)
 const TEASER_HEIGHT = "2.875rem"
 
 interface ProjectCardProps {
@@ -14,28 +13,27 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
-
     return (
-        <motion.div
-            whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(99,102,241,0.2)" }}
-            className="glass-card overflow-hidden hover:backdrop-blur-xl transition-all duration-300 flex flex-col"
-        >
-            {project.imagePath && (
-                <div className="relative h-48 w-full bg-zinc-100 dark:bg-zinc-900 shrink-0">
+        <div className="snap-start shrink-0 w-[85vw] md:w-[44%] flex flex-col">
+            <div className="mb-3 px-1">
+                <h3 className="font-heading tracking-tight text-xl font-bold text-zinc-900 dark:text-white">
+                    {project.title}
+                </h3>
+                <p className="text-accent text-sm font-medium mt-0.5">{project.role}</p>
+            </div>
+
+            {project.imagePath ? (
+                <div className="group relative h-64 w-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4 shadow-lg">
                     <Image
                         src={project.imagePath}
                         alt={project.title}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                 </div>
-            )}
+            ) : null}
 
-            <div className="p-6 flex flex-col">
-                <h3 className="font-heading tracking-tight text-xl font-bold text-zinc-900 dark:text-white mb-2">{project.title}</h3>
-                <p className="text-accent text-sm font-medium mb-3">{project.role}</p>
-
-                {/* Teaser + expand */}
+            <div className="px-1 flex flex-col">
                 <motion.div
                     animate={{ height: isOpen ? "auto" : TEASER_HEIGHT }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -62,7 +60,7 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
 
                 <button
                     onClick={onToggle}
-                    className="mt-2 flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors w-full"
+                    className="mt-2 flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors"
                     aria-expanded={isOpen}
                 >
                     <AnimatePresence mode="wait" initial={false}>
@@ -84,6 +82,6 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
                     </motion.span>
                 </button>
             </div>
-        </motion.div>
+        </div>
     )
 }

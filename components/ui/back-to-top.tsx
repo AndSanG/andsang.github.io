@@ -22,7 +22,7 @@ export function BackToTop() {
                     exit={{ opacity: 0, y: 16 }}
                     transition={{ duration: 0.2 }}
                     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                    className="fixed bottom-8 right-8 z-50 p-3 rounded-full glass-card border border-zinc-200 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors shadow-lg"
+                    className="fixed bottom-8 right-8 z-50 p-3 rounded-full glass-card text-zinc-500 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors"
                     aria-label="Back to top"
                 >
                     <ArrowUp size={18} />

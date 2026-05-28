@@ -48,7 +48,7 @@ export function CvDialog() {
         <>
             <TactileButton
                 onClick={() => setOpen(true)}
-                className="px-8 py-3 rounded-xl border-2 border-transparent text-zinc-500 dark:text-gray-400 font-semibold hover:text-zinc-900 dark:hover:text-white transition-all duration-300"
+                className="px-8 py-3 rounded-xl border border-white/30 dark:border-white/10 bg-white/20 dark:bg-zinc-900/20 backdrop-blur-sm text-zinc-600 dark:text-gray-400 font-semibold hover:bg-white/50 dark:hover:bg-zinc-900/40 hover:text-zinc-900 dark:hover:text-white transition-all duration-300"
             >
                 View CV
             </TactileButton>

@@ -28,7 +28,7 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
 
             {/* Horizontal timeline + circle node */}
             <div className="relative h-12 mb-1">
-                <div className="absolute top-1/2 h-1 bg-zinc-300 dark:bg-zinc-700 -translate-y-1/2 left-0 right-0" />
+                <div className="absolute top-1/2 h-px bg-zinc-300/60 dark:bg-white/15 -translate-y-1/2 left-0 right-0" />
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/50 dark:border-white/15 bg-white/70 dark:bg-zinc-900/60 backdrop-blur-sm backdrop-saturate-150 overflow-hidden z-10">
                     <Image
                         src={experience.imagePath}
@@ -40,7 +40,7 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
             </div>
 
             {/* Vertical stem from circle to card */}
-            <div className="w-1 h-4 bg-zinc-300 dark:bg-zinc-700 mx-auto" />
+            <div className="w-px h-4 bg-zinc-300/60 dark:bg-white/15 mx-auto" />
 
             {/* Card */}
             <motion.div
@@ -52,7 +52,7 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
                 style={{ transformStyle: "preserve-3d", perspective: "600px" }}
                 className="glass-card mx-3 p-6 flex flex-col flex-1"
             >
-                <span className="inline-block px-3 py-1 rounded-full bg-zinc-200 dark:bg-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 mb-3 font-mono w-fit">
+                <span className="inline-block px-3 py-1 rounded-full bg-white/50 dark:bg-white/8 backdrop-blur-sm border border-white/40 dark:border-white/10 text-xs text-zinc-600 dark:text-zinc-400 mb-3 font-mono w-fit">
                     {experience.year}
                 </span>
                 <h3 className={`font-heading tracking-tight text-xl font-bold mb-1 ${experience.color}`}>

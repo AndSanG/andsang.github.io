@@ -4,6 +4,13 @@ import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { useState, useEffect } from 'react'
 import { motion, useScroll } from 'framer-motion'
 
+const navLinks = [
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "More", href: "#more-about" },
+    { name: "Contact", href: "#contact" },
+]
+
 export function Navbar() {
     const { scrollYProgress } = useScroll()
     const [activeSection, setActiveSection] = useState("")
@@ -25,13 +32,6 @@ export function Navbar() {
 
         return () => observer.disconnect()
     }, [])
-
-    const navLinks = [
-        { name: "About", href: "#about" },
-        { name: "Projects", href: "#projects" },
-        { name: "More", href: "#more-about" },
-        { name: "Contact", href: "#contact" },
-    ]
 
     return (
         <>

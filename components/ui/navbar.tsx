@@ -78,9 +78,10 @@ export function Navbar() {
 
             <nav
                 aria-label="Main navigation"
-                className="fixed top-0 left-0 right-0 z-50 glass-card !rounded-none !border-x-0 !border-t-0 transition-colors"
+                className="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-4 px-4 md:px-8"
             >
-                <div className="container mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+                <div className="max-w-3xl mx-auto pointer-events-auto rounded-2xl bg-white/70 dark:bg-zinc-900/50 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-lg shadow-black/8 dark:shadow-black/30 ring-1 ring-inset ring-white/40 dark:ring-white/5 transition-all">
+                <div className="px-5 h-14 flex items-center justify-between">
                     <a href="#hero" className="block hover:opacity-80 transition-opacity flex gap-4">
                         <Image src="/swift-logo.png" alt="Swift Logo" width={40} height={40} className="w-10 h-10 object-contain" />
                         <Image src="/tri.png" alt="Triathlon" width={40} height={40} className="w-10 h-10 object-contain dark:invert" />
@@ -134,9 +135,9 @@ export function Navbar() {
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.2, ease: "easeInOut" }}
-                            className="overflow-hidden md:hidden border-t border-zinc-200 dark:border-zinc-800"
+                            className="overflow-hidden md:hidden border-t border-white/30 dark:border-white/5"
                         >
-                            <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
+                            <div className="px-5 py-4 flex flex-col gap-4">
                                 {navLinks.map((link) => (
                                     <a
                                         key={link.name}
@@ -154,6 +155,7 @@ export function Navbar() {
                         </motion.div>
                     )}
                 </AnimatePresence>
+                </div>
             </nav>
         </>
     )

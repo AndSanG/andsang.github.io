@@ -96,6 +96,7 @@ export function ExperienceList({ experiences }: { experiences: ExperienceViewMod
             <div
                 ref={scrollRef}
                 className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory gap-0 pb-4 items-start"
+                style={canScrollRight ? { maskImage: "linear-gradient(to right, black 82%, transparent 100%)" } : undefined}
             >
                 {experiences.map((experience) => (
                     <ExperienceCard

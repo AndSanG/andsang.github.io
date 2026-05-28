@@ -80,7 +80,7 @@ export function Navbar() {
                 aria-label="Main navigation"
                 className="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-4 px-4 md:px-8"
             >
-                <div className="max-w-3xl mx-auto pointer-events-auto rounded-2xl bg-white/70 dark:bg-zinc-900/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/60 dark:border-white/10 shadow-lg shadow-black/8 dark:shadow-black/30 ring-1 ring-inset ring-white/40 dark:ring-white/5 transition-all">
+                <div className="liquid-glass-distort max-w-3xl mx-auto pointer-events-auto rounded-2xl bg-white/70 dark:bg-zinc-900/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/60 dark:border-white/10 shadow-lg shadow-black/8 dark:shadow-black/30 ring-1 ring-inset ring-white/40 dark:ring-white/5 transition-all">
                 <div className="px-5 h-14 flex items-center justify-between">
                     <a href="#hero" className="block hover:opacity-80 transition-opacity flex gap-4">
                         <Image src="/swift-logo.png" alt="Swift Logo" width={40} height={40} className="w-10 h-10 object-contain" />

@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image"
+import { useRef, useEffect } from 'react'
 import { ProjectViewModel } from '@/src/interface-adapters/presenters/project-presenter'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
@@ -13,9 +14,15 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
+    const cardRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        if (isOpen) cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })
+    }, [isOpen])
+
     return (
-        <div className="snap-start shrink-0 w-[85vw] md:w-[44%] flex flex-col">
-            <div className="mb-3 px-1">
+        <div ref={cardRef} className="snap-start shrink-0 w-[calc(90%-1.5rem)] md:w-[44%] flex flex-col">
+            <div data-caption className="px-1 mb-2">
                 <h3 className="font-heading tracking-tight text-xl font-bold text-zinc-900 dark:text-white">
                     {project.title}
                 </h3>
@@ -33,7 +40,7 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
                 </div>
             ) : null}
 
-            <div className="px-1 flex flex-col">
+            <div className="px-1 flex flex-col flex-1">
                 <motion.div
                     animate={{ height: isOpen ? "auto" : TEASER_HEIGHT }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -60,7 +67,7 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
 
                 <button
                     onClick={onToggle}
-                    className="mt-2 flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors"
+                    className="mt-2 self-end flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors"
                     aria-expanded={isOpen}
                 >
                     <AnimatePresence mode="wait" initial={false}>

@@ -5,6 +5,7 @@ import { useRef, useEffect } from "react"
 import { ExperienceViewModel } from "@/src/interface-adapters/presenters/experience-presenter"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown } from "lucide-react"
+import { useGlassTilt } from "@/hooks/use-glass-tilt"
 
 interface ExperienceCardProps {
     experience: ExperienceViewModel
@@ -16,6 +17,7 @@ const TEASER_HEIGHT = "2.875rem"
 
 export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardProps) {
     const cardRef = useRef<HTMLDivElement>(null)
+    const { ref: tiltRef, tilt, onMouseMove, onMouseLeave } = useGlassTilt(0.6)
 
     useEffect(() => {
         if (isOpen) cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })
@@ -41,7 +43,15 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
             <div className="w-1 h-4 bg-zinc-300 dark:bg-zinc-700 mx-auto" />
 
             {/* Card */}
-            <div className="glass-card mx-3 p-6 flex flex-col flex-1">
+            <motion.div
+                ref={tiltRef}
+                onMouseMove={onMouseMove}
+                onMouseLeave={onMouseLeave}
+                animate={{ rotateY: tilt.x, rotateX: tilt.y }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                style={{ transformStyle: "preserve-3d", perspective: "600px" }}
+                className="glass-card mx-3 p-6 flex flex-col flex-1"
+            >
                 <span className="inline-block px-3 py-1 rounded-full bg-zinc-200 dark:bg-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 mb-3 font-mono w-fit">
                     {experience.year}
                 </span>
@@ -81,7 +91,7 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
                         <ChevronDown size={12} />
                     </motion.span>
                 </button>
-            </div>
+            </motion.div>
         </div>
     )
 }

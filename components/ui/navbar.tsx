@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, AnimatePresence } from 'framer-motion'
+import { useGlassTilt } from '@/hooks/use-glass-tilt'
 
 const navLinks = [
     { name: "About", href: "#about" },
@@ -15,6 +16,7 @@ export function Navbar() {
     const { scrollYProgress } = useScroll()
     const [activeSection, setActiveSection] = useState("")
     const [menuOpen, setMenuOpen] = useState(false)
+    const { ref: pillRef, tilt, onMouseMove, onMouseLeave } = useGlassTilt(0.8)
 
     const breadTopOpenRef    = useRef<SVGAnimateElement>(null)
     const breadTopCloseRef   = useRef<SVGAnimateElement>(null)
@@ -79,8 +81,17 @@ export function Navbar() {
             <nav
                 aria-label="Main navigation"
                 className="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-4 px-4 md:px-8"
+                style={{ perspective: "800px" }}
             >
-                <div className="liquid-glass-distort max-w-3xl mx-auto pointer-events-auto rounded-2xl bg-white/70 dark:bg-zinc-900/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/60 dark:border-white/10 shadow-lg shadow-black/8 dark:shadow-black/30 ring-1 ring-inset ring-white/40 dark:ring-white/5 transition-all">
+                <motion.div
+                    ref={pillRef}
+                    onMouseMove={onMouseMove}
+                    onMouseLeave={onMouseLeave}
+                    animate={{ rotateY: tilt.x, rotateX: tilt.y }}
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                    style={{ transformStyle: "preserve-3d" }}
+                    className="liquid-glass-distort max-w-3xl mx-auto pointer-events-auto rounded-2xl bg-white/70 dark:bg-zinc-900/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/60 dark:border-white/10 shadow-lg shadow-black/8 dark:shadow-black/30 ring-1 ring-inset ring-white/40 dark:ring-white/5 transition-colors"
+                >
                 <div className="px-5 h-14 flex items-center justify-between">
                     <a href="#hero" className="block hover:opacity-80 transition-opacity flex gap-4">
                         <Image src="/swift-logo.png" alt="Swift Logo" width={40} height={40} className="w-10 h-10 object-contain" />
@@ -155,7 +166,7 @@ export function Navbar() {
                         </motion.div>
                     )}
                 </AnimatePresence>
-                </div>
+                </motion.div>
             </nav>
         </>
     )

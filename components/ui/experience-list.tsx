@@ -105,7 +105,6 @@ export function ExperienceList({ experiences }: { experiences: ExperienceViewMod
                         onToggle={() => setOpenId(prev => prev === experience.id ? null : experience.id)}
                     />
                 ))}
-                <div className="shrink-0 w-6 md:hidden" aria-hidden />
             </div>
 
             <div className="flex items-center gap-3 mt-6">

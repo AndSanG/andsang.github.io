@@ -20,7 +20,7 @@ export class InMemoryExperienceRepository implements ExperienceRepository {
                 company: "iuvity (Todo1 Services Inc.)",
                 description: "Engineered resilient iOS banking apps for Bancolombia (10M+ active users) through iuvity's SaaS platform. Achieved 99.5% availability and 95% on-time SLA resolution. Drove architecture from MVC to VIPER and state-driven patterns, improving testability by 40%. Implemented Server-Driven UI, cutting deployment time by 60%. Delivered ISO 27001, OWASP MASVS, and PCI DSS compliance — FaceID, Apple Pay, SSL pinning, jailbreak detection.",
                 imagePath: '/iuvity.jpeg',
-                color: "text-green-500"
+                color: "text-green-700 dark:text-green-500"
             },
             {
                 id: "2018",
@@ -38,7 +38,7 @@ export class InMemoryExperienceRepository implements ExperienceRepository {
                 company: "iuvity (Todo1 Services Inc.)",
                 description: "Delivered banking UI features for Banistmo (Panama) using VIPER architecture through iuvity's SaaS platform. Refactored legacy Objective-C codebases to Swift, migrated layouts to iPhone X (Safe Area, AutoLayout), and coordinated App Store releases via TestFlight, Fastlane, and Jenkins. Stepped up as de facto coordinator for a distributed team of external providers.",
                 imagePath: '/iuvity.jpeg',
-                color: "text-green-400"
+                color: "text-green-700 dark:text-green-400"
             },
             {
                 id: "2015",
@@ -47,7 +47,7 @@ export class InMemoryExperienceRepository implements ExperienceRepository {
                 company: "Bayteq Cia Ltda",
                 description: "Built Supercines Cinema App with a custom seat-selection SDK and PCI DSS-compliant payments. Developed white-label mobile banking for Produbanco and integrated FacePhi biometric verification for Banco Bolivariano. Developed a Points of Interest module (branches/ATMs) using MapKit. Contributed to a 20-week Agile transformation from concept to App Store.",
                 imagePath: '/bayteq.jpeg',
-                color: "text-sky-900"
+                color: "text-sky-700 dark:text-sky-400"
             }
         ]
     }

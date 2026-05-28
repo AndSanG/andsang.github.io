@@ -48,19 +48,19 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
                 <h3 className={`font-heading tracking-tight text-xl font-bold mb-1 ${experience.color}`}>
                     {experience.title}
                 </h3>
-                <p className="text-zinc-400 text-sm mb-3 font-medium">{experience.company}</p>
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-3 font-medium">{experience.company}</p>
 
                 <motion.div
                     animate={{ height: isOpen ? "auto" : TEASER_HEIGHT }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                 >
-                    <p className="text-zinc-500 text-sm leading-relaxed">{experience.description}</p>
+                    <p className="text-zinc-600 dark:text-zinc-500 text-sm leading-relaxed">{experience.description}</p>
                 </motion.div>
 
                 <button
                     onClick={onToggle}
-                    className="mt-2 self-end flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors"
+                    className="mt-2 self-end flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
                     aria-expanded={isOpen}
                 >
                     <AnimatePresence mode="wait" initial={false}>

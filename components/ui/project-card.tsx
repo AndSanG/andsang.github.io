@@ -46,11 +46,11 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                 >
-                    <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.description}</p>
+                    <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">{project.description}</p>
 
                     <div className="bg-zinc-100 dark:bg-zinc-950 p-3 rounded-lg border border-zinc-200 dark:border-zinc-800/50 mb-4">
                         <strong className="block text-zinc-600 dark:text-gray-300 mb-1 text-xs uppercase tracking-wider">Challenge</strong>
-                        <p className="text-gray-400 text-sm leading-relaxed">{project.challenge}</p>
+                        <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">{project.challenge}</p>
                     </div>
 
                     <div className="flex flex-wrap items-center gap-2">
@@ -67,7 +67,7 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
 
                 <button
                     onClick={onToggle}
-                    className="mt-2 self-end flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors"
+                    className="mt-2 self-end flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
                     aria-expanded={isOpen}
                 >
                     <AnimatePresence mode="wait" initial={false}>

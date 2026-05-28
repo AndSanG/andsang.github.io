@@ -1,4 +1,4 @@
-export { projectController } from "./modules/project"
-export { experienceController } from "./modules/experience"
+export { projectController, getProjects } from "./modules/project"
+export { experienceController, getExperiences } from "./modules/experience"
 export { aboutController, getAbout } from "./modules/about"
-export { contactController } from "./modules/contact"
+export { contactController, getContact } from "./modules/contact"

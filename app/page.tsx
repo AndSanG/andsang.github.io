@@ -6,6 +6,7 @@ import { ExperienceSection } from '@/components/sections/experience'
 import { MoreAboutSection } from '@/components/sections/more-about'
 import { ContactSection } from '@/components/sections/contact'
 import { PageTransition } from '@/components/ui/page-transition'
+import { BackToTop } from '@/components/ui/back-to-top'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <MoreAboutSection />
         <ContactSection />
       </PageTransition>
+      <BackToTop />
     </main>
   )
 }

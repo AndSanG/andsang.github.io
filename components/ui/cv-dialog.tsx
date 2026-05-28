@@ -62,15 +62,15 @@ export function CvDialog() {
                 >
                     {/* Backdrop */}
                     <div
-                        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                        className="absolute inset-0 bg-black/40 backdrop-blur-xl"
                         onClick={() => setOpen(false)}
                     />
 
                     {/* Dialog */}
-                    <div className="relative z-10 w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-900 shadow-2xl">
+                    <div className="relative z-10 w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl bg-white/80 dark:bg-zinc-900/70 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-xl shadow-black/15 ring-1 ring-inset ring-white/40 dark:ring-white/5">
 
                         {/* Header */}
-                        <div className="flex items-center justify-between px-8 py-5 border-b border-black/10 dark:border-white/10 shrink-0">
+                        <div className="flex items-center justify-between px-8 py-5 border-b border-white/30 dark:border-white/8 shrink-0">
                             <span className="font-semibold text-base text-zinc-800 dark:text-white">Curriculum Vitae</span>
                             <button
                                 onClick={() => setOpen(false)}
@@ -93,7 +93,7 @@ export function CvDialog() {
                         </div>
 
                         {/* Footer */}
-                        <div className="shrink-0 px-8 py-5 border-t border-black/10 dark:border-white/10 flex justify-end">
+                        <div className="shrink-0 px-8 py-5 border-t border-white/30 dark:border-white/8 flex justify-end">
                             <TactileButton
                                 href={CV_PDF_URL}
                                 className="px-6 py-2.5 rounded-xl bg-accent text-black font-semibold text-sm hover:opacity-90 transition-opacity"

@@ -24,7 +24,7 @@ export async function MoreAboutSection() {
                     </p>
 
                     {/* Swift-styled code snippet */}
-                    <div className="rounded-2xl bg-zinc-950/85 backdrop-blur-sm border border-white/8 ring-1 ring-inset ring-white/5 px-6 py-5 font-mono text-sm md:text-base w-full overflow-x-auto">
+                    <div className="rounded-2xl bg-zinc-950/85 backdrop-blur-sm backdrop-saturate-150 border border-white/8 ring-1 ring-inset ring-white/5 px-6 py-5 font-mono text-sm md:text-base w-full overflow-x-auto">
                         <span className="text-purple-400">let</span>
                         <span className="text-white"> hobbies</span>
                         <span className="text-zinc-400"> = </span>

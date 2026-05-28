@@ -31,7 +31,7 @@ export function ExperienceCard({ experience, isEven }: ExperienceCardProps) {
                     <span className="inline-block px-3 py-1 rounded-full bg-zinc-200 dark:bg-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 mb-3 font-mono">
                         {experience.year}
                     </span>
-                    <h3 className={`font-heading tracking-tight text-xl font-bold text-foreground dark:text-white mb-1 ${experience.color}`}>
+                    <h3 className={`font-heading tracking-tight text-xl font-bold text-foreground  mb-1 ${experience.color}`}>
                         {experience.title}
                     </h3>
                     <p className="text-zinc-400 text-sm mb-3 font-medium">{experience.company}</p>

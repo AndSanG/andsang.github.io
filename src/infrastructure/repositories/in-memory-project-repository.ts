@@ -6,7 +6,7 @@ export class InMemoryProjectRepository implements ProjectRepository {
         const iuvibanking: Project = {
             id: 'iuvibanking',
             title: 'iuviBANKING Platform',
-            role: 'Senior iOS Engineer — Technical Coordinator',
+            role: 'Senior iOS Engineer — Technical Ownership',
             description: 'Production certification authority across React microfrontends, React Native, and the iOS native layer — cutting deployment time by 60% through Server-Driven UI.',
             challenge: 'Maintaining zero-defect handoffs across independent teams through certification gates, failure triage, and ownership routing — without people-management authority.',
             techStack: ['React', 'React Native', 'Swift', 'TypeScript', 'AWS', 'Modyo', 'OIDC', 'Server-Driven UI'],
@@ -25,7 +25,7 @@ export class InMemoryProjectRepository implements ProjectRepository {
 
         const supercines: Project = {
             id: 'supercines',
-            title: 'Cinema & Entertainment Platform',
+            title: 'Supercines iOS App',
             role: 'iOS Developer',
             description: 'Cinema app for Supercines — custom seat-selection SDK, PCI DSS-compliant payments, and CoreData offline support.',
             challenge: 'Building a pixel-accurate interactive seat map SDK with custom touch handling, then wiring a compliant payment gateway under strict PCI DSS requirements.',

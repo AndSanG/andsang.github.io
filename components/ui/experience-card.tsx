@@ -27,7 +27,7 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
             {/* Horizontal timeline + circle node */}
             <div className="relative h-12 mb-1">
                 <div className="absolute top-1/2 h-1 bg-zinc-300 dark:bg-zinc-700 -translate-y-1/2 left-0 right-0" />
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 overflow-hidden z-10">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/50 dark:border-white/15 bg-white/70 dark:bg-zinc-900/60 backdrop-blur-sm overflow-hidden z-10">
                     <Image
                         src={experience.imagePath}
                         alt={experience.company}

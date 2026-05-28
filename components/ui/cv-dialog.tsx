@@ -2,10 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import dynamic from 'next/dynamic'
 import { X, Download } from 'lucide-react'
 import { TactileButton } from '@/components/ui/tactile-button'
+
+const CvMarkdown = dynamic(
+    () => import('./cv-markdown').then(m => ({ default: m.CvMarkdown })),
+    { loading: () => <p className="text-zinc-400 text-sm">Loading…</p> }
+)
 
 const REPO = 'AndSanG/andsang.github.io'
 const CV_PDF_URL = `https://github.com/${REPO}/releases/latest/download/cv.pdf`
@@ -77,35 +81,18 @@ export function CvDialog() {
                             ) : content === '' ? (
                                 <p className="text-zinc-400 text-sm">Could not load CV content.</p>
                             ) : (
-                                <div className="prose prose-zinc dark:prose-invert max-w-none
-                                    prose-h1:text-4xl prose-h1:font-bold prose-h1:mb-4
-                                    prose-h2:text-3xl prose-h2:font-semibold prose-h2:mb-3 prose-h2:mt-8
-                                    prose-h3:text-2xl prose-h3:font-semibold prose-h3:mb-2
-                                    prose-p:text-base prose-p:mb-4 prose-p:leading-relaxed
-                                    prose-li:text-base prose-li:mb-2
-                                    prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-4
-                                    prose-hr:border-black/10 dark:prose-hr:border-white/10 prose-hr:my-10
-                                    prose-strong:font-bold
-                                    prose-em:italic
-                                    prose-a:text-blue-500 hover:prose-a:underline">
-                                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                                        {content}
-                                    </ReactMarkdown>
-                                </div>
+                                <CvMarkdown content={content} />
                             )}
                         </div>
 
                         {/* Footer */}
                         <div className="shrink-0 px-8 py-5 border-t border-black/10 dark:border-white/10 flex justify-end">
-                            <a
+                            <TactileButton
                                 href={CV_PDF_URL}
-                                download="andres-sanchez-cv.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-accent text-black font-semibold text-sm hover:opacity-90 transition-opacity"
+                                className="px-6 py-2.5 rounded-xl bg-accent text-black font-semibold text-sm hover:opacity-90 transition-opacity"
                             >
                                 <Download size={16} /> Download as PDF
-                            </a>
+                            </TactileButton>
                         </div>
                     </div>
                 </div>,

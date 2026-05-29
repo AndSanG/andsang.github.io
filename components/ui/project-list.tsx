@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState, useEffect, useLayoutEffect } from "react"
+import { useRef, useState, useEffect } from "react"
 import { ProjectViewModel } from "@/src/interface-adapters/presenters/project-presenter"
 import { ProjectCard } from "./project-card"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -13,7 +13,7 @@ export function ProjectList({ projects }: { projects: ProjectViewModel[] }) {
     const scrollRef = useRef<HTMLDivElement>(null)
     const wrapperRef = useRef<HTMLDivElement>(null)
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const container = scrollRef.current
         if (!container) return
         const captions = Array.from(container.querySelectorAll<HTMLElement>('[data-caption]'))

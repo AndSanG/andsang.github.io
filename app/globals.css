@@ -101,14 +101,10 @@ body {
   animation: marqueeScroll 30s linear infinite;
 }
 
-/* Scroll-driven progress bar (Safari 18 / iOS 18+) */
-@keyframes growX {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
+/* Scroll progress bar — updated via JS in Navbar */
 .scroll-progress {
-  animation: growX linear both;
-  animation-timeline: scroll(root);
+  transform: scaleX(0);
+  will-change: transform;
 }
 
 @keyframes shine {

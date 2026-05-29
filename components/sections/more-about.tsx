@@ -42,7 +42,7 @@ export async function MoreAboutSection() {
                 </div>
 
                 {/* Image Column */}
-                <div className="relative aspect-[440/600] w-full order-1 md:order-2">
+                <div className="relative aspect-[440/600] w-full order-1 md:order-2 rounded-3xl overflow-hidden">
                     <Image
                         src="/about-me.webp"
                         alt="Andrés Sánchez"

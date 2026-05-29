@@ -14,6 +14,7 @@ export function Navbar() {
     const [activeSection, setActiveSection] = useState("")
     const [menuOpen, setMenuOpen] = useState(false)
 
+    const progressRef        = useRef<HTMLDivElement>(null)
     const breadTopOpenRef    = useRef<SVGAnimateElement>(null)
     const breadTopCloseRef   = useRef<SVGAnimateElement>(null)
     const breadBotOpenRef    = useRef<SVGAnimateElement>(null)
@@ -31,6 +32,17 @@ export function Navbar() {
         const sections = document.querySelectorAll("section[id]")
         sections.forEach((section) => observer.observe(section))
         return () => observer.disconnect()
+    }, [])
+
+    useEffect(() => {
+        const el = progressRef.current
+        if (!el) return
+        const onScroll = () => {
+            const scrolled = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+            el.style.transform = `scaleX(${Math.min(1, Math.max(0, scrolled))})`
+        }
+        window.addEventListener("scroll", onScroll, { passive: true })
+        return () => window.removeEventListener("scroll", onScroll)
     }, [])
 
     useEffect(() => {
@@ -67,8 +79,7 @@ export function Navbar() {
                 Skip to content
             </a>
 
-            {/* Scroll Progress Bar — CSS scroll-driven, no JS */}
-            <div className="scroll-progress fixed top-0 left-0 right-0 h-[2px] bg-accent z-[60] origin-left" />
+            <div ref={progressRef} className="scroll-progress fixed top-0 left-0 right-0 h-[2px] bg-accent z-[60] origin-left" />
 
             <nav
                 aria-label="Main navigation"

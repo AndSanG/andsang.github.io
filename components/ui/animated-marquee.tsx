@@ -1,11 +1,9 @@
-"use client"
-
 interface AnimatedMarqueeProps {
   items: string[]
 }
 
 export function AnimatedMarquee({ items }: AnimatedMarqueeProps) {
-  const marqueeItems = [...items, ...items, ...items, ...items]
+  const marqueeItems = [...items, ...items]
 
   return (
     <div

@@ -1,29 +1,18 @@
 "use client"
 
-import { motion } from "framer-motion"
-
 interface AnimatedMarqueeProps {
   items: string[]
 }
 
 export function AnimatedMarquee({ items }: AnimatedMarqueeProps) {
-  // Duplicate items to ensure smooth infinite loop
   const marqueeItems = [...items, ...items, ...items, ...items]
 
   return (
-    <div 
+    <div
         className="w-full overflow-hidden flex items-center py-4"
         style={{ WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
     >
-      <motion.div
-        className="flex gap-12 whitespace-nowrap min-w-max"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{
-          repeat: Infinity,
-          ease: "linear",
-          duration: 30,
-        }}
-      >
+      <div className="flex gap-12 whitespace-nowrap min-w-max marquee-track">
         {marqueeItems.map((item, i) => (
           <div
             key={i}
@@ -32,7 +21,7 @@ export function AnimatedMarquee({ items }: AnimatedMarqueeProps) {
             {item}
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }

@@ -1,11 +1,11 @@
 import { GetProjectsUseCase } from "../../application/use-cases/get-projects"
+import { ProjectViewModel, presentProjects } from "../presenters/project-presenter"
 
 export class ProjectController {
     constructor(private getProjectsUseCase: GetProjectsUseCase) { }
 
-    async getProjects() {
-        // In a real API route, we might validate request params here.
-        // For RSCs, we just delegate to the use case.
-        return this.getProjectsUseCase.execute()
+    async getProjects(): Promise<ProjectViewModel[]> {
+        const projects = await this.getProjectsUseCase.execute()
+        return presentProjects(projects)
     }
 }

@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import { aboutController } from "@/src/di"
+import { getAbout } from "@/src/di"
 
 export async function MoreAboutSection() {
-    const about = await aboutController.getAbout()
+    const about = await getAbout()
 
     return (
-        <section id="more-about" className="bg-background dark:bg-black py-24 border-t border-zinc-200 dark:border-zinc-900 relative overflow-hidden">
+        <section id="more-about" className="bg-background dark:bg-black py-8 border-t border-zinc-200 dark:border-zinc-900 relative overflow-hidden">
             <div className="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 {/* Text Column */}
                 <div className="flex flex-col gap-6 order-2 md:order-1">
@@ -24,7 +24,7 @@ export async function MoreAboutSection() {
                     </p>
 
                     {/* Swift-styled code snippet */}
-                    <div className="rounded-2xl bg-zinc-950 border border-zinc-800 px-6 py-5 font-mono text-sm md:text-base w-full overflow-x-auto">
+                    <div className="rounded-2xl bg-zinc-950/85 backdrop-blur-sm backdrop-saturate-150 border border-white/8 ring-1 ring-inset ring-white/5 px-6 py-5 font-mono text-sm md:text-base w-full overflow-x-auto">
                         <span className="text-purple-400">let</span>
                         <span className="text-white"> hobbies</span>
                         <span className="text-zinc-400"> = </span>

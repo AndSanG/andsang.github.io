@@ -1,16 +1,16 @@
-import { aboutController } from "@/src/di"
+import { getAbout } from "@/src/di"
 import { Reveal } from "@/components/ui/reveal"
 import { AnimatedStats } from "@/components/ui/animated-stats"
 import { AnimatedMarquee } from '@/components/ui/animated-marquee'
 
 export async function AboutSection() {
-    const about = await aboutController.getAbout()
+    const about = await getAbout()
 
     return (
-        <section id="about" className="bg-background dark:bg-black py-24 border-t border-zinc-200 dark:border-zinc-900 relative overflow-hidden">
+        <section id="about" className="bg-background dark:bg-black py-8 border-t border-zinc-200 dark:border-zinc-900 relative overflow-hidden">
             <div className="container mx-auto px-6 md:px-12 relative z-10">
                 <Reveal>
-                    <h2 className="text-3xl md:text-5xl font-bold text-foreground dark:text-white mb-16 text-center">
+                    <h2 className="text-3xl md:text-5xl font-bold text-foreground dark:text-white mb-8 text-center">
                         About <span className="text-accent">Me</span>
                     </h2>
                 </Reveal>

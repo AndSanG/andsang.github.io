@@ -2,9 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import dynamic from 'next/dynamic'
 import { X, Download } from 'lucide-react'
+import { TactileButton } from '@/components/ui/tactile-button'
+
+const CvMarkdown = dynamic(
+    () => import('./cv-markdown').then(m => ({ default: m.CvMarkdown })),
+    { loading: () => <p className="text-zinc-400 text-sm">Loading…</p> }
+)
 
 const REPO = 'AndSanG/andsang.github.io'
 const CV_PDF_URL = `https://github.com/${REPO}/releases/latest/download/cv.pdf`
@@ -30,16 +35,23 @@ export function CvDialog() {
         return () => { document.body.style.overflow = '' }
     }, [open])
 
+    useEffect(() => {
+        if (!open) return
+        const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+        document.addEventListener('keydown', onKey)
+        return () => document.removeEventListener('keydown', onKey)
+    }, [open])
+
     if (!available) return null
 
     return (
         <>
-            <button
+            <TactileButton
                 onClick={() => setOpen(true)}
-                className="px-8 py-3 rounded-xl border-2 border-transparent text-zinc-500 dark:text-gray-400 font-semibold hover:text-zinc-900 dark:hover:text-white transition-all duration-300 flex items-center gap-2"
+                className="px-8 py-3 rounded-xl border border-white/30 dark:border-white/10 bg-white/20 dark:bg-zinc-900/20 backdrop-blur-sm backdrop-saturate-150 text-zinc-600 dark:text-gray-400 font-semibold hover:bg-white/50 dark:hover:bg-zinc-900/40 hover:text-zinc-900 dark:hover:text-white transition-all duration-300"
             >
                 View CV
-            </button>
+            </TactileButton>
 
             {open && createPortal(
                 <div
@@ -50,15 +62,15 @@ export function CvDialog() {
                 >
                     {/* Backdrop */}
                     <div
-                        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                        className="absolute inset-0 bg-black/40 backdrop-blur-xl backdrop-saturate-150"
                         onClick={() => setOpen(false)}
                     />
 
                     {/* Dialog */}
-                    <div className="relative z-10 w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-900 shadow-2xl">
+                    <div className="relative z-10 w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl bg-white/80 dark:bg-zinc-900/70 backdrop-blur-2xl backdrop-saturate-150 border border-white/60 dark:border-white/10 shadow-xl shadow-black/15 ring-1 ring-inset ring-white/40 dark:ring-white/5">
 
                         {/* Header */}
-                        <div className="flex items-center justify-between px-8 py-5 border-b border-black/10 dark:border-white/10 shrink-0">
+                        <div className="flex items-center justify-between px-8 py-5 border-b border-white/30 dark:border-white/8 shrink-0">
                             <span className="font-semibold text-base text-zinc-800 dark:text-white">Curriculum Vitae</span>
                             <button
                                 onClick={() => setOpen(false)}
@@ -76,35 +88,18 @@ export function CvDialog() {
                             ) : content === '' ? (
                                 <p className="text-zinc-400 text-sm">Could not load CV content.</p>
                             ) : (
-                                <div className="prose prose-zinc dark:prose-invert max-w-none
-                                    prose-h1:text-4xl prose-h1:font-bold prose-h1:mb-4
-                                    prose-h2:text-3xl prose-h2:font-semibold prose-h2:mb-3 prose-h2:mt-8
-                                    prose-h3:text-2xl prose-h3:font-semibold prose-h3:mb-2
-                                    prose-p:text-base prose-p:mb-4 prose-p:leading-relaxed
-                                    prose-li:text-base prose-li:mb-2
-                                    prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-4
-                                    prose-hr:border-black/10 dark:prose-hr:border-white/10 prose-hr:my-10
-                                    prose-strong:font-bold
-                                    prose-em:italic
-                                    prose-a:text-blue-500 hover:prose-a:underline">
-                                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                                        {content}
-                                    </ReactMarkdown>
-                                </div>
+                                <CvMarkdown content={content} />
                             )}
                         </div>
 
                         {/* Footer */}
-                        <div className="shrink-0 px-8 py-5 border-t border-black/10 dark:border-white/10 flex justify-end">
-                            <a
+                        <div className="shrink-0 px-8 py-5 border-t border-white/30 dark:border-white/8 flex justify-end">
+                            <TactileButton
                                 href={CV_PDF_URL}
-                                download="andres-sanchez-cv.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-accent text-black font-semibold text-sm hover:opacity-90 transition-opacity"
+                                className="px-6 py-2.5 rounded-xl bg-accent text-black font-semibold text-sm hover:opacity-90 transition-opacity"
                             >
                                 <Download size={16} /> Download as PDF
-                            </a>
+                            </TactileButton>
                         </div>
                     </div>
                 </div>,

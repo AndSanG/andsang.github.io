@@ -1,5 +1,3 @@
-"use client"
+import { ReactNode } from "react"
 
-export const PageTransition = ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>
-}
+export const PageTransition = ({ children }: { children: ReactNode }) => <>{children}</>

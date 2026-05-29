@@ -1,5 +1,3 @@
-"use client"
-
 interface AnimatedMarqueeProps {
   items: string[]
 }

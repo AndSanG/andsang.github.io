@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState, useEffect, useLayoutEffect } from "react"
+import { useRef, useState, useEffect } from "react"
 import { ExperienceViewModel } from "@/src/interface-adapters/presenters/experience-presenter"
 import { ExperienceCard } from "./experience-card"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -36,7 +36,7 @@ export function ExperienceList({ experiences }: { experiences: ExperienceViewMod
         return () => observer.disconnect()
     }, [experiences.length])
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const container = scrollRef.current
         if (!container) return
         const titles = Array.from(container.querySelectorAll<HTMLElement>('[data-exp-title]'))

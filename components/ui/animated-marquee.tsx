@@ -14,7 +14,7 @@ export function AnimatedMarquee({ items }: AnimatedMarqueeProps) {
         {marqueeItems.map((item, i) => (
           <div
             key={i}
-            className="text-zinc-500 dark:text-zinc-500 font-heading tracking-wider font-semibold text-sm uppercase flex items-center"
+            className="text-zinc-500 dark:text-zinc-400 font-heading tracking-wider font-semibold text-sm uppercase flex items-center"
           >
             {item}
           </div>

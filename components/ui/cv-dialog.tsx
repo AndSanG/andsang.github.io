@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import dynamic from 'next/dynamic'
 import { X, Download } from 'lucide-react'
@@ -16,10 +16,18 @@ const CV_PDF_URL = `https://github.com/${REPO}/releases/latest/download/cv.pdf`
 
 export function CvDialog() {
     const [open, setOpen] = useState(false)
+    const [closing, setClosing] = useState(false)
     const [content, setContent] = useState<string | null>(null)
     const [loadFailed, setLoadFailed] = useState(false)
 
-    // Fetch only when the dialog is opened, not on page load
+    const handleClose = useCallback(() => {
+        setClosing(true)
+        setTimeout(() => {
+            setOpen(false)
+            setClosing(false)
+        }, 150)
+    }, [])
+
     useEffect(() => {
         if (!open || content !== null || loadFailed) return
         fetch('/cv.md')
@@ -38,10 +46,10 @@ export function CvDialog() {
 
     useEffect(() => {
         if (!open) return
-        const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+        const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') handleClose() }
         document.addEventListener('keydown', onKey)
         return () => document.removeEventListener('keydown', onKey)
-    }, [open])
+    }, [open, handleClose])
 
     return (
         <>
@@ -54,7 +62,7 @@ export function CvDialog() {
 
             {open && createPortal(
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4"
+                    className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-150 ${closing ? 'opacity-0' : 'opacity-100'}`}
                     role="dialog"
                     aria-modal="true"
                     aria-label="Curriculum Vitae"
@@ -62,7 +70,7 @@ export function CvDialog() {
                     {/* Backdrop */}
                     <div
                         className="absolute inset-0 bg-black/40 backdrop-blur-xl backdrop-saturate-150"
-                        onClick={() => setOpen(false)}
+                        onClick={handleClose}
                     />
 
                     {/* Dialog */}
@@ -72,7 +80,7 @@ export function CvDialog() {
                         <div className="flex items-center justify-between px-8 py-5 border-b border-white/30 dark:border-white/8 shrink-0">
                             <span className="font-semibold text-base text-zinc-800 dark:text-white">Curriculum Vitae</span>
                             <button
-                                onClick={() => setOpen(false)}
+                                onClick={handleClose}
                                 className="p-1 rounded-lg text-zinc-400 hover:text-zinc-700 dark:hover:text-white transition-colors"
                                 aria-label="Close"
                             >

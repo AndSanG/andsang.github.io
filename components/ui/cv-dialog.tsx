@@ -17,18 +17,19 @@ const CV_PDF_URL = `https://github.com/${REPO}/releases/latest/download/cv.pdf`
 export function CvDialog() {
     const [open, setOpen] = useState(false)
     const [content, setContent] = useState<string | null>(null)
-    const [available, setAvailable] = useState<boolean | null>(null)
+    const [loadFailed, setLoadFailed] = useState(false)
 
-    // Fetch from own origin — cv.md is copied to public/ by the update-cv workflow
+    // Fetch only when the dialog is opened, not on page load
     useEffect(() => {
+        if (!open || content !== null || loadFailed) return
         fetch('/cv.md')
             .then(res => {
                 if (!res.ok) throw new Error()
                 return res.text()
             })
-            .then(text => { setContent(text); setAvailable(true) })
-            .catch(() => setAvailable(false))
-    }, [])
+            .then(text => setContent(text))
+            .catch(() => setLoadFailed(true))
+    }, [open, content, loadFailed])
 
     useEffect(() => {
         document.body.style.overflow = open ? 'hidden' : ''
@@ -41,8 +42,6 @@ export function CvDialog() {
         document.addEventListener('keydown', onKey)
         return () => document.removeEventListener('keydown', onKey)
     }, [open])
-
-    if (!available) return null
 
     return (
         <>
@@ -83,10 +82,10 @@ export function CvDialog() {
 
                         {/* Content */}
                         <div className="overflow-y-auto px-10 py-8 flex-1">
-                            {content === null ? (
-                                <p className="text-zinc-400 text-sm">Loading…</p>
-                            ) : content === '' ? (
+                            {loadFailed ? (
                                 <p className="text-zinc-400 text-sm">Could not load CV content.</p>
+                            ) : content === null ? (
+                                <p className="text-zinc-400 text-sm">Loading…</p>
                             ) : (
                                 <CvMarkdown content={content} />
                             )}

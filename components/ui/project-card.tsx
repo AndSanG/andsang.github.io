@@ -2,7 +2,6 @@
 import Image from "next/image"
 import { useRef, useEffect } from 'react'
 import { ProjectViewModel } from '@/src/interface-adapters/presenters/project-presenter'
-import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
 const TEASER_HEIGHT = "2.875rem"
@@ -41,52 +40,46 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
             ) : null}
 
             <div className="px-1 flex flex-col flex-1">
-                <motion.div
-                    animate={{ height: isOpen ? "auto" : TEASER_HEIGHT }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
+                {/* CSS grid expand — shows TEASER_HEIGHT when closed */}
+                <div
+                    style={{
+                        display: "grid",
+                        gridTemplateRows: isOpen ? "1fr" : "0fr",
+                        transition: "grid-template-rows 0.3s ease-in-out",
+                        overflow: "hidden",
+                    }}
                 >
-                    <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">{project.description}</p>
+                    <div style={{ minHeight: TEASER_HEIGHT }}>
+                        <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">{project.description}</p>
 
-                    <div className="bg-white/50 dark:bg-white/5 backdrop-blur-sm backdrop-saturate-150 p-3 rounded-lg border border-white/40 dark:border-white/8 mb-4">
-                        <strong className="block text-zinc-600 dark:text-gray-300 mb-1 text-xs uppercase tracking-wider">Challenge</strong>
-                        <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">{project.challenge}</p>
-                    </div>
+                        <div className="bg-white/50 dark:bg-white/5 backdrop-blur-sm backdrop-saturate-150 p-3 rounded-lg border border-white/40 dark:border-white/8 mb-4">
+                            <strong className="block text-zinc-600 dark:text-gray-300 mb-1 text-xs uppercase tracking-wider">Challenge</strong>
+                            <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">{project.challenge}</p>
+                        </div>
 
-                    <div className="flex flex-wrap items-center gap-2">
-                        {project.techStack.map((tech) => (
-                            <span
-                                key={tech}
-                                className="inline-flex items-center px-2 py-1 text-xs rounded-full bg-white/50 dark:bg-white/8 backdrop-blur-sm backdrop-saturate-150 text-zinc-600 dark:text-gray-300 border border-white/50 dark:border-white/10"
-                            >
-                                {tech}
-                            </span>
-                        ))}
+                        <div className="flex flex-wrap items-center gap-2">
+                            {project.techStack.map((tech) => (
+                                <span
+                                    key={tech}
+                                    className="inline-flex items-center px-2 py-1 text-xs rounded-full bg-white/50 dark:bg-white/8 backdrop-blur-sm backdrop-saturate-150 text-zinc-600 dark:text-gray-300 border border-white/50 dark:border-white/10"
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
                     </div>
-                </motion.div>
+                </div>
 
                 <button
                     onClick={onToggle}
                     className="mt-2 self-end flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
                     aria-expanded={isOpen}
                 >
-                    <AnimatePresence mode="wait" initial={false}>
-                        <motion.span
-                            key={isOpen ? "less" : "more"}
-                            initial={{ opacity: 0, y: -4 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 4 }}
-                            transition={{ duration: 0.15 }}
-                        >
-                            {isOpen ? "Show less" : "Read more"}
-                        </motion.span>
-                    </AnimatePresence>
-                    <motion.span
-                        animate={{ rotate: isOpen ? 180 : 0 }}
-                        transition={{ duration: 0.25 }}
-                    >
-                        <ChevronDown size={12} />
-                    </motion.span>
+                    <span>{isOpen ? "Show less" : "Read more"}</span>
+                    <ChevronDown
+                        size={12}
+                        className={`transition-transform duration-250 ${isOpen ? "rotate-180" : "rotate-0"}`}
+                    />
                 </button>
             </div>
         </div>

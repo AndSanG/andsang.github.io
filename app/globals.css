@@ -41,7 +41,13 @@ body {
 
 @layer components {
   .glass-card {
-    @apply bg-zinc-100/80 dark:bg-zinc-900/40 backdrop-blur-2xl backdrop-saturate-150 border border-zinc-200 dark:border-white/10 rounded-2xl shadow-lg shadow-black/8 dark:shadow-black/25 ring-1 ring-inset ring-zinc-100 dark:ring-white/5;
+    @apply bg-zinc-100/95 dark:bg-zinc-900/85 border border-zinc-200 dark:border-white/10 rounded-2xl shadow-lg shadow-black/8 dark:shadow-black/25 ring-1 ring-inset ring-zinc-100 dark:ring-white/5;
+  }
+
+  @media (min-width: 768px) {
+    .glass-card {
+      @apply bg-zinc-100/80 dark:bg-zinc-900/40 backdrop-blur-2xl backdrop-saturate-150;
+    }
   }
 
   .no-scrollbar {
@@ -51,6 +57,58 @@ body {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* Scroll-triggered reveal */
+@keyframes revealFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal-hidden { opacity: 0; transform: translateY(30px); }
+.reveal-visible { animation: revealFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* Skill chip reveal */
+@keyframes skillFadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.skill-hidden { opacity: 0; transform: scale(0.8); }
+.skill-visible { animation: skillFadeIn 0.3s ease both; }
+
+/* Stat item reveal */
+@keyframes statFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.stat-hidden { opacity: 0; transform: translateY(10px); }
+.stat-visible { animation: statFadeUp 0.4s ease both; }
+
+/* Hero image float */
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.hero-float {
+  animation: heroFloat 4s ease-in-out infinite;
+}
+
+/* Skills marquee */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marqueeScroll 30s linear infinite;
+}
+
+/* Scroll-driven progress bar (Safari 18 / iOS 18+) */
+@keyframes growX {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.scroll-progress {
+  animation: growX linear both;
+  animation-timeline: scroll(root);
 }
 
 @keyframes shine {
@@ -107,7 +165,15 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fluid-shape {
+  .fluid-shape,
+  .hero-float,
+  .marquee-track {
     animation: none;
+  }
+}
+
+@media (hover: none) {
+  .fluid-shape {
+    display: none;
   }
 }

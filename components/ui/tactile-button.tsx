@@ -1,5 +1,4 @@
 "use client"
-import { motion } from "framer-motion"
 import { ReactNode } from "react"
 
 interface Props {
@@ -10,7 +9,7 @@ interface Props {
 }
 
 export function TactileButton({ href, onClick, className = "", children }: Props) {
-  const base = `relative overflow-hidden group flex items-center justify-center ${className}`
+  const base = `relative overflow-hidden group flex items-center justify-center active:scale-95 transition-transform duration-100 ${className}`
   const shine = (
     <span
       aria-hidden
@@ -20,17 +19,17 @@ export function TactileButton({ href, onClick, className = "", children }: Props
 
   if (href !== undefined) {
     return (
-      <motion.a href={href} className={base} whileTap={{ scale: 0.95 }}>
+      <a href={href} className={base}>
         <span className="relative z-10 flex items-center gap-2">{children}</span>
         {shine}
-      </motion.a>
+      </a>
     )
   }
 
   return (
-    <motion.button onClick={onClick} className={base} whileTap={{ scale: 0.95 }}>
+    <button onClick={onClick} className={base}>
       <span className="relative z-10 flex items-center gap-2">{children}</span>
       {shine}
-    </motion.button>
+    </button>
   )
 }

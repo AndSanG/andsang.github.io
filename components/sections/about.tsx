@@ -40,7 +40,7 @@ export async function AboutSection() {
             </div>
 
             {/* Background glow */}
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#7c3aed] opacity-5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#7c3aed] opacity-5 blur-[120px] rounded-full pointer-events-none hidden md:block" />
         </section>
     )
 }

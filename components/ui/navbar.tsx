@@ -2,8 +2,6 @@
 import Image from 'next/image'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { useState, useEffect, useRef } from 'react'
-import { motion, useScroll, AnimatePresence } from 'framer-motion'
-import { useGlassTilt } from '@/hooks/use-glass-tilt'
 
 const navLinks = [
     { name: "About", href: "#about" },
@@ -13,10 +11,8 @@ const navLinks = [
 ]
 
 export function Navbar() {
-    const { scrollYProgress } = useScroll()
     const [activeSection, setActiveSection] = useState("")
     const [menuOpen, setMenuOpen] = useState(false)
-    const { ref: pillRef, tilt, onMouseMove, onMouseLeave } = useGlassTilt(0.8)
 
     const breadTopOpenRef    = useRef<SVGAnimateElement>(null)
     const breadTopCloseRef   = useRef<SVGAnimateElement>(null)
@@ -37,7 +33,6 @@ export function Navbar() {
         return () => observer.disconnect()
     }, [])
 
-    // Close menu on resize to desktop
     useEffect(() => {
         const onResize = () => { if (window.innerWidth >= 768) setMenuOpen(false) }
         window.addEventListener("resize", onResize, { passive: true })
@@ -72,30 +67,18 @@ export function Navbar() {
                 Skip to content
             </a>
 
-            {/* Scroll Progress Bar */}
-            <motion.div
-                className="fixed top-0 left-0 right-0 h-[2px] bg-accent z-[60] origin-left"
-                style={{ scaleX: scrollYProgress }}
-            />
+            {/* Scroll Progress Bar — CSS scroll-driven, no JS */}
+            <div className="scroll-progress fixed top-0 left-0 right-0 h-[2px] bg-accent z-[60] origin-left" />
 
             <nav
                 aria-label="Main navigation"
                 className="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-4 px-4 md:px-8"
-                style={{ perspective: "800px" }}
             >
-                <motion.div
-                    ref={pillRef}
-                    onMouseMove={onMouseMove}
-                    onMouseLeave={onMouseLeave}
-                    animate={{ rotateY: tilt.x, rotateX: tilt.y }}
-                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                    style={{ transformStyle: "preserve-3d" }}
-                    className="max-w-3xl mx-auto pointer-events-auto rounded-2xl bg-white/70 dark:bg-zinc-900/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/60 dark:border-white/10 shadow-lg shadow-black/8 dark:shadow-black/30 ring-1 ring-inset ring-white/40 dark:ring-white/5 transition-colors"
-                >
+                <div className="max-w-3xl mx-auto pointer-events-auto rounded-2xl bg-white/95 dark:bg-zinc-900/95 md:bg-white/70 md:dark:bg-zinc-900/50 md:backdrop-blur-2xl md:backdrop-saturate-150 border border-white/60 dark:border-white/10 shadow-lg shadow-black/8 dark:shadow-black/30 ring-1 ring-inset ring-white/40 dark:ring-white/5 transition-colors">
                 <div className="px-5 h-14 flex items-center justify-between">
                     <a href="#hero" className="block hover:opacity-80 transition-opacity flex gap-4">
-                        <Image src="/swift-logo.png" alt="Swift Logo" width={40} height={40} className="w-10 h-10 object-contain" />
-                        <Image src="/tri.png" alt="Triathlon" width={40} height={40} className="w-10 h-10 object-contain dark:invert" />
+                        <Image src="/swift-logo.webp" alt="Swift Logo" width={40} height={40} className="w-10 h-10 object-contain" />
+                        <Image src="/tri.webp" alt="Triathlon" width={40} height={40} className="w-10 h-10 object-contain dark:invert" />
                     </a>
 
                     {/* Desktop links */}
@@ -138,35 +121,25 @@ export function Navbar() {
                     </div>
                 </div>
 
-                {/* Mobile menu */}
-                <AnimatePresence>
-                    {menuOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2, ease: "easeInOut" }}
-                            className="overflow-hidden md:hidden border-t border-white/30 dark:border-white/5"
-                        >
-                            <div className="px-5 py-4 flex flex-col gap-4">
-                                {navLinks.map((link) => (
-                                    <a
-                                        key={link.name}
-                                        href={link.href}
-                                        onClick={closeMenu}
-                                        className={`text-sm font-medium transition-colors py-1
-                                            ${activeSection === link.href.substring(1)
-                                                ? "text-accent"
-                                                : "text-zinc-600 dark:text-gray-300"}`}
-                                    >
-                                        {link.name}
-                                    </a>
-                                ))}
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-                </motion.div>
+                {/* Mobile menu — CSS transition, no Framer Motion */}
+                <div className={`overflow-hidden transition-all duration-200 ease-in-out md:hidden border-t border-white/30 dark:border-white/5 ${menuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className="px-5 py-4 flex flex-col gap-4">
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                onClick={closeMenu}
+                                className={`text-sm font-medium transition-colors py-1
+                                    ${activeSection === link.href.substring(1)
+                                        ? "text-accent"
+                                        : "text-zinc-600 dark:text-gray-300"}`}
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+                </div>
             </nav>
         </>
     )

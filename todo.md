@@ -1,5 +1,14 @@
 # Todo
 
+## Render-blocking CSS
+
+Next.js App Router injects CSS via `<link rel="stylesheet" data-precedence="next">`. Because of the `data-precedence` attribute (React's internal hydration ordering), `beasties` inlines critical CSS but leaves the blocking `<link>` intact — Lighthouse still flags it. Work was reverted.
+
+- [ ] Find a strategy compatible with `data-precedence`:
+  - Option A: run beasties, then patch remaining `<link rel="stylesheet" data-precedence="next">` tags to `media="print" onload="this.media='all'"` + `<noscript>` fallback
+  - Option B: wait for a beasties release that handles `data-precedence`
+  - Option C: accept it — the render-blocking CSS is small and GitHub Pages cache TTL is the bigger bottleneck
+
 ## i18n — Spanish support
 
 Add a language toggle (EN / ES) so the site can be read in Spanish.

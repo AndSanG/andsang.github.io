@@ -167,9 +167,3 @@ body {
     animation: none;
   }
 }
-
-@media (hover: none) {
-  .fluid-shape {
-    display: none;
-  }
-}

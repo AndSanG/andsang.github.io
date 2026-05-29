@@ -67,7 +67,7 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
                     }}
                 >
                     <div style={{ minHeight: TEASER_HEIGHT }}>
-                        <p className="text-zinc-600 dark:text-zinc-500 text-sm leading-relaxed">{experience.description}</p>
+                        <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">{experience.description}</p>
                     </div>
                 </div>
 

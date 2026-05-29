@@ -66,7 +66,7 @@ export function CvDialog() {
                     />
 
                     {/* Dialog */}
-                    <div className="relative z-10 w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl bg-white/80 dark:bg-zinc-900/70 backdrop-blur-2xl backdrop-saturate-150 border border-white/60 dark:border-white/10 shadow-xl shadow-black/15 ring-1 ring-inset ring-white/40 dark:ring-white/5">
+                    <div className="relative z-10 w-full max-w-4xl max-h-[92dvh] flex flex-col rounded-2xl bg-white/80 dark:bg-zinc-900/70 backdrop-blur-2xl backdrop-saturate-150 border border-white/60 dark:border-white/10 shadow-xl shadow-black/15 ring-1 ring-inset ring-white/40 dark:ring-white/5">
 
                         {/* Header */}
                         <div className="flex items-center justify-between px-8 py-5 border-b border-white/30 dark:border-white/8 shrink-0">

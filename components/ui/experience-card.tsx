@@ -55,7 +55,7 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
                 <span className="inline-block px-3 py-1 rounded-full bg-white/50 dark:bg-white/8 backdrop-blur-sm border border-white/40 dark:border-white/10 text-xs text-zinc-600 dark:text-zinc-400 mb-3 font-mono w-fit">
                     {experience.year}
                 </span>
-                <h3 className={`font-heading tracking-tight text-xl font-bold mb-1 ${experience.color}`}>
+                <h3 data-exp-title className={`font-heading tracking-tight text-xl font-bold mb-1 ${experience.color}`}>
                     {experience.title}
                 </h3>
                 <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-3 font-medium">{experience.company}</p>

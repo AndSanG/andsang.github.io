@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, useLayoutEffect } from "react"
 import { ExperienceViewModel } from "@/src/interface-adapters/presenters/experience-presenter"
 import { ExperienceCard } from "./experience-card"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -35,6 +35,16 @@ export function ExperienceList({ experiences }: { experiences: ExperienceViewMod
         observer.observe(last)
         return () => observer.disconnect()
     }, [experiences.length])
+
+    useLayoutEffect(() => {
+        const container = scrollRef.current
+        if (!container) return
+        const titles = Array.from(container.querySelectorAll<HTMLElement>('[data-exp-title]'))
+        titles.forEach(el => (el.style.height = ''))
+        if (titles.length === 0) return
+        const max = Math.max(...titles.map(el => el.getBoundingClientRect().height))
+        titles.forEach(el => (el.style.height = `${max}px`))
+    }, [experiences])
 
     useEffect(() => {
         if (openId !== null) return

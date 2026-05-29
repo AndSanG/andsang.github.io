@@ -114,7 +114,6 @@ export function ProjectList({ projects }: { projects: ProjectViewModel[] }) {
                         onToggle={() => setOpenId(prev => prev === project.id ? null : project.id)}
                     />
                 ))}
-                <div className="shrink-0 w-6 md:hidden" aria-hidden />
             </div>
 
             <div className="flex items-center gap-3 mt-6">

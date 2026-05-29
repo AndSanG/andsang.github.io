@@ -5,7 +5,7 @@ export async function MoreAboutSection() {
     const about = await getAbout()
 
     return (
-        <section id="more-about" className="bg-background dark:bg-black py-16 border-t border-zinc-200 dark:border-zinc-900 relative overflow-hidden">
+        <section id="more-about" className="bg-background dark:bg-black py-8 border-t border-zinc-200 dark:border-zinc-900 relative overflow-hidden">
             <div className="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 {/* Text Column */}
                 <div className="flex flex-col gap-6 order-2 md:order-1">

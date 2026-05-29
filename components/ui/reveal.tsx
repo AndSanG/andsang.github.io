@@ -1,7 +1,6 @@
 "use client"
 
-import { motion, useInView, useAnimation } from "framer-motion"
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, useState } from "react"
 
 interface Props {
   children: React.ReactNode
@@ -10,29 +9,41 @@ interface Props {
 }
 
 export const Reveal = ({ children, width = "100%", delay = 0 }: Props) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-50px" })
-  const mainControls = useAnimation()
+  const outerRef = useRef<HTMLDivElement>(null)
+  const innerRef = useRef<HTMLDivElement>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => { setMounted(true) }, [])
 
   useEffect(() => {
-    if (isInView) {
-      mainControls.start("visible")
-    }
-  }, [isInView, mainControls])
+    if (!mounted || !outerRef.current || !innerRef.current) return
+    const inner = innerRef.current
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          inner.style.animationDelay = `${delay}s`
+          inner.classList.remove("reveal-hidden")
+          inner.classList.add("reveal-visible")
+          observer.disconnect()
+        }
+      },
+      { rootMargin: "-50px" }
+    )
+
+    observer.observe(outerRef.current)
+    return () => observer.disconnect()
+  }, [mounted, delay])
+
+  if (!mounted) {
+    return <div style={{ position: "relative", width }}>{children}</div>
+  }
 
   return (
-    <div ref={ref} style={{ position: "relative", width }}>
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 30 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        initial="hidden"
-        animate={mainControls}
-        transition={{ duration: 0.6, delay: delay, ease: [0.22, 1, 0.36, 1] }}
-      >
+    <div ref={outerRef} style={{ position: "relative", width }}>
+      <div ref={innerRef} className="reveal-hidden">
         {children}
-      </motion.div>
+      </div>
     </div>
   )
 }

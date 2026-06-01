@@ -6,9 +6,10 @@ export function HeroImage() {
             <Image
                 src="/profile-cutout.webp"
                 alt="Andres Sanchez"
-                width={800}
-                height={926}
+                width={600}
+                height={695}
                 className="w-auto h-auto max-h-[350px] md:max-h-[500px] object-contain rounded-3xl"
+                sizes="(max-width: 768px) 350px, 500px"
                 priority
             />
         </div>

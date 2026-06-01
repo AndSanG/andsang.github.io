@@ -19,6 +19,13 @@ Migrate from GitHub Pages to Vercel's free tier for better performance and cachi
 - [ ] Update any hardcoded links from `andsang.github.io` to new Vercel domain (if any)
 - [ ] Merge to `master` and deploy to production
 
+**What this unlocks (GitHub Pages cannot fix these):**
+
+| Issue | Current (GitHub Pages) | With Vercel | Impact |
+|-------|-------|---------|--------|
+| **Cache lifetimes** | 10 min TTL | 1 year for hashed assets | 365 KiB savings per repeat visit |
+| **Critical request chains** | CSS blocks rendering at 348→456ms | HTTP/2 Server Push | ~109ms LCP improvement |
+
 ## Render-blocking CSS
 
 Next.js App Router injects CSS via `<link rel="stylesheet" data-precedence="next">`. Because of the `data-precedence` attribute (React's internal hydration ordering), `beasties` inlines critical CSS but leaves the blocking `<link>` intact — Lighthouse still flags it. Work was reverted.

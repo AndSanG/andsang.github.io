@@ -1,5 +1,24 @@
 # Todo
 
+## Deploy to Vercel
+
+Migrate from GitHub Pages to Vercel's free tier for better performance and caching.
+
+**Benefits:**
+- HTTP/2 Server Push (fixes critical request chains, saves ~109ms on LCP)
+- Custom cache headers (fixes 10-min GitHub Pages TTL → 1yr for hashed assets)
+- Free default domain: `andsang-github-io.vercel.app`
+- Optional: add custom domain later ($10-15/year)
+- Automatic deployments on git push
+
+**Steps:**
+- [ ] Push current branch (`feat/liquidglass`) to GitHub
+- [ ] Connect repo to Vercel (or use `npm i -g vercel && vercel`)
+- [ ] Vercel auto-detects Next.js + `output: 'export'`
+- [ ] Test site on Vercel domain
+- [ ] Update any hardcoded links from `andsang.github.io` to new Vercel domain (if any)
+- [ ] Merge to `master` and deploy to production
+
 ## Render-blocking CSS
 
 Next.js App Router injects CSS via `<link rel="stylesheet" data-precedence="next">`. Because of the `data-precedence` attribute (React's internal hydration ordering), `beasties` inlines critical CSS but leaves the blocking `<link>` intact — Lighthouse still flags it. Work was reverted.

@@ -19,7 +19,7 @@ export async function ContactSection() {
                         </div>
                         <div>
                             <p className="text-zinc-700 dark:text-gray-300 font-medium">{contact.location}</p>
-                            <p className="text-zinc-500 dark:text-gray-500 text-xs text-nowrap">{contact.timezone}</p>
+                            <p className="text-zinc-600 dark:text-gray-400 text-xs text-nowrap">{contact.timezone}</p>
                         </div>
                     </div>
 

@@ -6,10 +6,10 @@ export class InMemoryProjectRepository implements ProjectRepository {
         const iuvibanking: Project = {
             id: 'iuvibanking',
             title: 'iuviBANKING Platform',
-            role: 'Senior iOS Engineer — Technical Ownership',
-            description: 'Production certification authority across React microfrontends, React Native, and the iOS native layer — cutting deployment time by 60% through Server-Driven UI.',
-            challenge: 'Maintaining zero-defect handoffs across independent teams through certification gates, failure triage, and ownership routing — without people-management authority.',
-            techStack: ['React', 'React Native', 'Swift', 'TypeScript', 'AWS', 'Modyo', 'OIDC', 'Server-Driven UI'],
+            role: 'Senior Software Engineer — Platform Ownership',
+            description: 'Technical reference and quality certification gatekeeper across React microfrontends, React Native shells, and iOS native modules, responsible for stable production handovers.',
+            challenge: 'Establishing zero-defect handoff protocols across independent product and operations teams, and resolving critical cross-layer failures through technical influence rather than formal authority.',
+            techStack: ['React', 'React Native', 'Swift', 'TypeScript', 'AWS', 'Modyo DXP', 'OIDC', 'Server-Driven UI'],
             imagePath: '/projects/iuvibanking.webp',
         }
 
@@ -17,9 +17,9 @@ export class InMemoryProjectRepository implements ProjectRepository {
             id: 'bancolombia',
             title: 'Bancolombia iOS App',
             role: 'Senior iOS Engineer',
-            description: 'iOS banking app for 10M+ active users — 99.5% uptime, 95% on-time SLA, full security compliance stack.',
-            challenge: 'Modernizing a legacy MVC codebase to VIPER and state-driven patterns without disrupting a live app under continuous high-volume traffic.',
-            techStack: ['Swift', 'VIPER', 'MVVM', 'Combine', 'Firebase', 'freeRASP'],
+            description: 'High-availability native iOS banking integrations serving 10M+ active users, with a 99.9% crash-free session rate under strict 99.5% system SLAs.',
+            challenge: 'Modernizing a complex legacy MVC codebase to VIPER and MVVM-C architectures without introducing regressions or interrupting live transaction traffic.',
+            techStack: ['Swift', 'VIPER', 'MVVM-C', 'Combine', 'Firebase', 'RASP'],
             imagePath: '/projects/bancolombia.webp',
         }
 
@@ -27,12 +27,32 @@ export class InMemoryProjectRepository implements ProjectRepository {
             id: 'supercines',
             title: 'Supercines iOS App',
             role: 'iOS Developer',
-            description: 'Cinema app for Supercines — custom seat-selection SDK, PCI DSS-compliant payments, and CoreData offline support.',
-            challenge: 'Building a pixel-accurate interactive seat map SDK with custom touch handling, then wiring a compliant payment gateway under strict PCI DSS requirements.',
-            techStack: ['Swift', 'Objective-C', 'UIKit', 'CoreData', 'MapKit', 'PCI DSS'],
+            description: 'Cinema booking application featuring a custom seat-selection SDK, PCI DSS-compliant payment integrations, and offline persistence.',
+            challenge: 'Building a high-performance interactive seat selection UI SDK using UIKit with custom touch handling, and securing transactional pipelines under strict PCI compliance.',
+            techStack: ['Swift', 'Objective-C', 'UIKit', 'Core Data', 'MapKit', 'PCI DSS'],
             imagePath: '/projects/supercines.webp',
         }
 
-        return [iuvibanking, bancolombia, supercines]
+        const personalSite: Project = {
+            id: 'personal-site',
+            title: 'Personal Website',
+            role: 'Designer & Engineer',
+            description: 'This site, a clean architecture Next.js portfolio with App Router, TypeScript, and Tailwind CSS, deployed to GitHub Pages.',
+            challenge: 'Applying Clean Architecture principles (entities, use cases, repositories, interface adapters) to a static portfolio site, keeping presentation fully decoupled from data while working within GitHub Pages constraints.',
+            techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Clean Architecture', 'GitHub Pages'],
+            imagePath: '/projects/persona-site.webp',
+        }
+
+        const msThesis: Project = {
+            id: 'msc-thesis-ppm-idyot',
+            title: 'PPM★ vs IDyOT: Statistical Language Modeling',
+            role: 'MSc Researcher — VUB AI Lab',
+            description: 'MSc thesis at Vrije Universiteit Brussel comparing PPM★, a compression-based language model, against IDyOT, a cognitive architecture for hierarchical prediction. Implemented both algorithms in Python, validated against established benchmarks, and identified the optimal IDyOT configuration via KL divergence analysis.',
+            challenge: 'PPM★ achieves high prediction accuracy as a descriptive black box but offers no cognitive explanation. The challenge was formally documenting IDyOT\'s within-layer interactions (implicit in prior literature), implementing a zero-probability smoothing fix, and connecting statistical accuracy to cognitive plausibility.',
+            techStack: ['Python', 'PPM★', 'IDyOT', 'Word2Vec', 'Statistical NLP', 'Cognitive Architecture', 'Information Theory'],
+            imagePath: '/projects/msc-thesis.webp',
+        }
+
+        return [iuvibanking, bancolombia, personalSite, msThesis, supercines]
     }
 }

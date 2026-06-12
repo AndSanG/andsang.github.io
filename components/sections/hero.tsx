@@ -30,7 +30,7 @@ export async function Hero() {
                         <HeroImage />
                     </div>
 
-                    <div className="flex flex-wrap gap-3 mt-2 md:mt-4 items-center">
+                    <div className="grid grid-cols-2 md:flex gap-3 mt-2 md:mt-4 items-stretch text-sm w-fit mx-auto md:w-auto md:mx-0">
                         <TactileButton
                             href="#projects"
                             className="px-8 py-3 rounded-xl border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-black transition-all duration-300"
@@ -42,6 +42,14 @@ export async function Hero() {
                             className="px-8 py-3 rounded-xl border border-white/30 dark:border-white/10 bg-white/20 dark:bg-zinc-900/20 backdrop-blur-sm backdrop-saturate-150 text-zinc-600 dark:text-gray-400 font-semibold hover:bg-white/50 dark:hover:bg-zinc-900/40 hover:text-zinc-900 dark:hover:text-white transition-all duration-300"
                         >
                             Contact Me
+                        </TactileButton>
+                        <TactileButton
+                            href="https://github.com/AndSanG"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-8 py-3 rounded-xl border border-white/30 dark:border-white/10 bg-white/20 dark:bg-zinc-900/20 backdrop-blur-sm backdrop-saturate-150 text-zinc-600 dark:text-gray-400 font-semibold hover:bg-white/50 dark:hover:bg-zinc-900/40 hover:text-zinc-900 dark:hover:text-white transition-all duration-300"
+                        >
+                            GitHub
                         </TactileButton>
                         <CvDialog />
                     </div>

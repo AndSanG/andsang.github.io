@@ -16,8 +16,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Andrés Sánchez - Senior iOS Engineer",
-  description: "Senior iOS Engineer with 8+ years delivering resilient mobile banking apps for millions of users across Latin America.",
+  title: "Andrés Sánchez - Senior Engineer",
+  description: "Senior Engineer with 8+ years delivering resilient mobile banking apps for millions of users across Latin America.",
 };
 
 export const viewport: Viewport = {
@@ -41,7 +41,7 @@ export default function RootLayout({
           <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-500/5 blur-[100px]" />
           <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-purple-900/5 blur-[100px]" />
         </div>
-<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
       </body>

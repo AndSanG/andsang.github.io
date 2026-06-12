@@ -6,15 +6,16 @@ export class InMemoryAboutRepository implements AboutRepository {
         return {
             name: "Andrés Sánchez",
             heroDescription: [
-                "Senior Mobile & Frontend Engineer with 8+ years of experience delivering secure, high-performance banking platforms for millions of users.",
-                "Specializing in iOS native architecture, React Native bridges, and React microfrontends.",
-                "Proven track record in FinTech security compliance, CI/CD automation, and high-volume mobile systems.",
+                "Senior Software Engineer with 8+ years of experience delivering secure, high-performance banking platforms for millions of users.",
+                "iOS-native at the core, with React Native bridging and React microfrontends on the hybrid side.",
+                "Deep background in FinTech security compliance, CI/CD automation, and high-volume mobile systems.",
                 "Endurance athlete and coffee enthusiast.",
                 "Structure creates freedom, details create intuition, discipline creates flow."
             ],
             bio: [
-                "Andrés has spent 8+ years building resilient mobile banking apps and frontend platforms for millions of users—maintaining high-stability operations under strict SLAs and high-volume production loads.",
-                "His work spans the full mobile and hybrid stack, with deep expertise in Swift/iOS native module development, React Native, and React microfrontends. He focuses on clean architecture, security compliance (PCI DSS, OWASP MASVS, ISO 27001), and end-to-end telemetry observability.",
+                "I've spent 8+ years building resilient mobile banking apps and frontend platforms for millions of users, maintaining high-stability operations under strict SLAs and high-volume production loads.",
+                "My work spans the full mobile and hybrid stack, with deep expertise in Swift/iOS native module development, React Native, and React microfrontends. I focus on clean architecture, security compliance (PCI DSS, OWASP MASVS, ISO 27001), and end-to-end telemetry observability.",
+                "I hold an MSc in Applied Computer Science from Vrije Universiteit Brussel (Distinction), with a thesis comparing statistical language models against cognitive architectures for AI explainability, and hands-on ML projects in PyTorch and scikit-learn.",
             ],
             stats: [
                 { label: "Years of Experience", value: "8+" },
@@ -23,7 +24,8 @@ export class InMemoryAboutRepository implements AboutRepository {
             ],
             skills: [
                 "Swift", "SwiftUI", "UIKit", "Combine",
-                "React 18", "TypeScript", "React Native", "Cordova",
+                "React 18", "TypeScript", "React Native",
+                "Python", "PyTorch", "Keras", "NumPy", "scikit-learn",
                 "Clean Architecture", "VIPER", "MVVM-C", "Server-Driven UI", "Microfrontends",
                 "Jest", "XCTest", "TDD",
                 "Fastlane", "CI/CD", "GitHub Actions",

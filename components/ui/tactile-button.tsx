@@ -3,12 +3,14 @@ import { ReactNode } from "react"
 
 interface Props {
   href?: string
+  target?: string
+  rel?: string
   onClick?: () => void
   className?: string
   children: ReactNode
 }
 
-export function TactileButton({ href, onClick, className = "", children }: Props) {
+export function TactileButton({ href, target, rel, onClick, className = "", children }: Props) {
   const base = `relative overflow-hidden group flex items-center justify-center active:scale-95 transition-transform duration-100 ${className}`
   const shine = (
     <span
@@ -19,7 +21,7 @@ export function TactileButton({ href, onClick, className = "", children }: Props
 
   if (href !== undefined) {
     return (
-      <a href={href} className={base}>
+      <a href={href} target={target} rel={rel} className={base}>
         <span className="relative z-10 flex items-center gap-2">{children}</span>
         {shine}
       </a>
